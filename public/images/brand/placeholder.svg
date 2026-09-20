@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Image placeholder">
+  <defs>
+    <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0v28" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#p)"/>
+  <path d="M320 268h160v96H320z" fill="none" stroke="#A87545" stroke-width="3"/>
+  <path d="M320 268l160 96M480 268l-160 96" stroke="#D8D1C1" stroke-width="2"/>
+  <text x="400" y="404" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#6E7E87" letter-spacing="2">IMAGE TO BE SUPPLIED</text>
+</svg>

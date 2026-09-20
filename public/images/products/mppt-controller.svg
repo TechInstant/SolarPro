@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of an MPPT solar charge controller">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <rect x="220" y="130" width="360" height="330" rx="12" fill="#0B1F2A" stroke="#07151D" stroke-width="5"/>
+  <rect x="236" y="146" width="328" height="188" rx="6" fill="#132B39"/>
+
+  <!-- lcd -->
+  <rect x="266" y="176" width="268" height="112" rx="4" fill="#0E2430" stroke="#2C566B" stroke-width="3"/>
+  <text x="288" y="224" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="30" fill="#65BA84" letter-spacing="1">60.0 A</text>
+  <text x="288" y="254" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#7FA3B4" letter-spacing="2">MPPT · 48V · BULK</text>
+  <g fill="#3F8F5B"><rect x="454" y="196" width="56" height="8" rx="2"/><rect x="454" y="212" width="42" height="8" rx="2"/><rect x="454" y="228" width="28" height="8" rx="2"/></g>
+
+  <!-- keys -->
+  <g fill="#1B3B4C" stroke="#2C566B" stroke-width="2">
+    <rect x="266" y="302" width="56" height="20" rx="4"/>
+    <rect x="334" y="302" width="56" height="20" rx="4"/>
+    <rect x="402" y="302" width="56" height="20" rx="4"/>
+    <rect x="470" y="302" width="64" height="20" rx="4"/>
+  </g>
+
+  <!-- heatsink -->
+  <g stroke="#2C566B" stroke-width="7" stroke-linecap="round">
+    <path d="M250 366h300M250 390h300M250 414h300"/>
+  </g>
+
+  <!-- terminal block -->
+  <rect x="236" y="436" width="328" height="34" rx="4" fill="#A87545"/>
+  <g fill="#07151D">
+    <rect x="256" y="444" width="22" height="18" rx="2"/>
+    <rect x="292" y="444" width="22" height="18" rx="2"/>
+    <rect x="368" y="444" width="22" height="18" rx="2"/>
+    <rect x="404" y="444" width="22" height="18" rx="2"/>
+    <rect x="480" y="444" width="22" height="18" rx="2"/>
+    <rect x="516" y="444" width="22" height="18" rx="2"/>
+  </g>
+  <text x="267" y="498" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#4A5B64">PV</text>
+  <text x="379" y="498" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#4A5B64">BATT</text>
+  <text x="497" y="498" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#4A5B64">LOAD</text>
+
+  <g stroke="#A87545" stroke-width="2" fill="none"><path d="M580 236h84"/></g>
+  <text x="600" y="228" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545">≥99.5% TRACKING</text>
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">CHARGE CONTROLLER</text>
+</svg>

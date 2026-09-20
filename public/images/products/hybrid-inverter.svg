@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a wall mounted hybrid solar inverter">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- body -->
+  <rect x="250" y="96" width="300" height="390" rx="10" fill="#FBFAF7" stroke="#0B1F2A" stroke-width="5"/>
+  <rect x="250" y="96" width="300" height="70" rx="10" fill="#0B1F2A"/>
+  <rect x="250" y="150" width="300" height="16" fill="#0B1F2A"/>
+  <text x="276" y="140" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="17" fill="#F7F5EF" letter-spacing="3">HYBRID INVERTER</text>
+
+  <!-- display -->
+  <rect x="290" y="196" width="220" height="104" rx="4" fill="#132B39" stroke="#0B1F2A" stroke-width="3"/>
+  <text x="310" y="246" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="34" fill="#65BA84" letter-spacing="2">5.00 kW</text>
+  <text x="310" y="276" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#7FA3B4" letter-spacing="2">PV 1 / PV 2 · 48V BATT</text>
+
+  <!-- status leds -->
+  <circle cx="306" cy="330" r="7" fill="#3F8F5B"/>
+  <circle cx="336" cy="330" r="7" fill="#A87545"/>
+  <circle cx="366" cy="330" r="7" fill="#C9C2B2"/>
+  <!-- buttons -->
+  <rect x="440" y="320" width="30" height="20" rx="3" fill="#E1DACA" stroke="#0B1F2A" stroke-width="2"/>
+  <rect x="480" y="320" width="30" height="20" rx="3" fill="#E1DACA" stroke="#0B1F2A" stroke-width="2"/>
+
+  <!-- heatsink fins -->
+  <g stroke="#C9C2B2" stroke-width="6" stroke-linecap="round">
+    <path d="M290 372h220M290 392h220M290 412h220M290 432h220"/>
+  </g>
+
+  <!-- terminal glands -->
+  <g fill="#0B1F2A">
+    <rect x="300" y="486" width="26" height="30" rx="4"/>
+    <rect x="346" y="486" width="26" height="30" rx="4"/>
+    <rect x="428" y="486" width="26" height="30" rx="4"/>
+    <rect x="474" y="486" width="26" height="30" rx="4"/>
+  </g>
+  <g stroke="#0B1F2A" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M313 516v40M359 516v40M441 516v40M487 516v40"/>
+  </g>
+
+  <!-- callouts -->
+  <g stroke="#A87545" stroke-width="2" fill="none">
+    <path d="M550 248h96M550 404h96"/>
+  </g>
+  <text x="656" y="242" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545">DUAL MPPT</text>
+  <text x="656" y="398" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545">IP65 HOUSING</text>
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">INVERTER</text>
+</svg>

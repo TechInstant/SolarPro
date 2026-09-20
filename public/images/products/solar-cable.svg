@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a roll of double insulated solar DC cable">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- coil -->
+  <g transform="translate(300 300)">
+    <circle r="168" fill="none" stroke="#0B1F2A" stroke-width="26"/>
+    <circle r="138" fill="none" stroke="#132B39" stroke-width="22"/>
+    <circle r="110" fill="none" stroke="#0B1F2A" stroke-width="22"/>
+    <circle r="84" fill="none" stroke="#132B39" stroke-width="20"/>
+    <circle r="60" fill="none" stroke="#0B1F2A" stroke-width="18"/>
+    <circle r="40" fill="#F2EFE6" stroke="#C9C2B2" stroke-width="4"/>
+    <text y="6" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64">100 m</text>
+  </g>
+  <!-- cable tail -->
+  <path d="M468 300c60-10 88 28 108 62" fill="none" stroke="#0B1F2A" stroke-width="22" stroke-linecap="round"/>
+
+  <!-- cross section -->
+  <g transform="translate(628 218)">
+    <circle r="84" fill="#FBFAF7" stroke="#C9C2B2" stroke-width="3"/>
+    <circle r="62" fill="#0B1F2A"/>
+    <circle r="44" fill="#132B39"/>
+    <g fill="#A87545">
+      <circle cx="0" cy="-20" r="7"/><circle cx="17" cy="-10" r="7"/><circle cx="17" cy="10" r="7"/>
+      <circle cx="0" cy="20" r="7"/><circle cx="-17" cy="10" r="7"/><circle cx="-17" cy="-10" r="7"/>
+      <circle cx="0" cy="0" r="7"/>
+    </g>
+  </g>
+  <g stroke="#4A5B64" stroke-width="1.5" fill="none">
+    <path d="M628 302v34h56"/>
+  </g>
+  <text x="694" y="342" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">6.0 mm²</text>
+  <text x="694" y="366" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">TINNED COPPER</text>
+  <text x="694" y="390" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#A87545">1500V DC · TÜV</text>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">SOLAR DC CABLE</text>
+</svg>

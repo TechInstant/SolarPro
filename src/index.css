@@ -1,0 +1,189 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --shell-gutter: 1.25rem;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Anchor targets clear the fixed header. */
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+  }
+
+  /* One visible, consistent focus ring across the whole site. */
+  :focus-visible {
+    outline: 2px solid #3f8f5b;
+    outline-offset: 2px;
+  }
+
+  /* Native controls inherit the brand rather than the browser default. */
+  input,
+  select,
+  textarea,
+  button {
+    font: inherit;
+    color: inherit;
+  }
+
+  ::selection {
+    background: #0b1f2a;
+    color: #f7f5ef;
+  }
+
+  /*
+   * Grid items default to min-width:auto, so anything wide inside one —
+   * a horizontal scroller, a long unbroken string — stretches the whole
+   * column and pushes the page sideways. This is the standard guard.
+   */
+  .grid > * {
+    min-width: 0;
+  }
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-shell px-5 sm:px-6 lg:px-10;
+  }
+
+  /* Technical label used above section headings and on data rows. */
+  .eyebrow {
+    @apply font-mono text-eyebrow uppercase text-bronze;
+  }
+
+  .hairline {
+    @apply border-cream-300;
+  }
+
+  /* Blueprint rule: a thin line with a tick, used to open sections. */
+  .rule-tick {
+    @apply relative border-t border-cream-300 pt-5;
+  }
+  .rule-tick::before {
+    content: '';
+    @apply absolute left-0 top-0 h-[3px] w-12 bg-bronze;
+  }
+
+  .rule-tick-dark {
+    @apply relative border-t border-navy-line pt-5;
+  }
+  .rule-tick-dark::before {
+    content: '';
+    @apply absolute left-0 top-0 h-[3px] w-12 bg-bronze;
+  }
+
+  /* Faint drafting grid, used sparingly on dark panels. */
+  .blueprint {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .blueprint-light {
+    background-image: linear-gradient(to right, rgba(11, 31, 42, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(11, 31, 42, 0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Horizontal scrollers on mobile: snap, no visible scrollbar. */
+  .rail {
+    @apply flex snap-x snap-mandatory overflow-x-auto scroll-smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .rail::-webkit-scrollbar {
+    display: none;
+  }
+  .rail > * {
+    @apply snap-start;
+  }
+
+  .field-label {
+    @apply mb-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-ink-soft;
+  }
+
+  .field {
+    @apply w-full rounded-sm border border-cream-300 bg-white px-3.5 py-3 text-[15px] text-ink
+      placeholder:text-ink-muted/70 transition-colors duration-200
+      focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss;
+  }
+
+  .field-dark {
+    @apply w-full rounded-sm border border-navy-line bg-navy-deep px-3.5 py-3 text-[15px] text-cream
+      placeholder:text-cream-300/40 transition-colors duration-200
+      focus:border-moss focus:outline-none focus:ring-1 focus:ring-moss;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Reveal-on-scroll primitive (see useReveal). */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s cubic-bezier(0.22, 0.61, 0.36, 1),
+      transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .tap {
+    min-height: 44px;
+  }
+}
+
+/* Scrollbar, kept quiet and on-brand. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f2efe6;
+}
+::-webkit-scrollbar-thumb {
+  background: #d8d1c1;
+  border: 2px solid #f2efe6;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a87545;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a rack mounted lithium iron phosphate battery">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- cabinet rails -->
+  <g fill="#D8D1C1">
+    <rect x="108" y="128" width="26" height="344" rx="4"/>
+    <rect x="666" y="128" width="26" height="344" rx="4"/>
+  </g>
+
+  <!-- module 1 -->
+  <g>
+    <rect x="140" y="160" width="520" height="118" rx="6" fill="#FBFAF7" stroke="#0B1F2A" stroke-width="5"/>
+    <rect x="140" y="160" width="520" height="30" rx="6" fill="#0B1F2A"/>
+    <rect x="140" y="182" width="520" height="8" fill="#0B1F2A"/>
+    <text x="164" y="182" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#F7F5EF" letter-spacing="3">LiFePO4 · 51.2V 200Ah</text>
+    <!-- soc leds -->
+    <g fill="#3F8F5B">
+      <rect x="170" y="216" width="18" height="34" rx="2"/>
+      <rect x="196" y="216" width="18" height="34" rx="2"/>
+      <rect x="222" y="216" width="18" height="34" rx="2"/>
+      <rect x="248" y="216" width="18" height="34" rx="2"/>
+    </g>
+    <rect x="274" y="216" width="18" height="34" rx="2" fill="#D8D1C1"/>
+    <!-- terminals -->
+    <circle cx="556" cy="233" r="17" fill="#A87545" stroke="#0B1F2A" stroke-width="4"/>
+    <circle cx="612" cy="233" r="17" fill="#132B39" stroke="#0B1F2A" stroke-width="4"/>
+    <text x="556" y="272" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">+</text>
+    <text x="612" y="272" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">−</text>
+    <!-- comms ports -->
+    <rect x="404" y="220" width="34" height="26" rx="3" fill="#E1DACA" stroke="#0B1F2A" stroke-width="3"/>
+    <rect x="448" y="220" width="34" height="26" rx="3" fill="#E1DACA" stroke="#0B1F2A" stroke-width="3"/>
+  </g>
+
+  <!-- module 2 (stacked) -->
+  <g opacity=".55">
+    <rect x="140" y="304" width="520" height="118" rx="6" fill="#FBFAF7" stroke="#0B1F2A" stroke-width="5"/>
+    <rect x="140" y="304" width="520" height="30" rx="6" fill="#0B1F2A"/>
+    <rect x="140" y="326" width="520" height="8" fill="#0B1F2A"/>
+    <g fill="#3F8F5B">
+      <rect x="170" y="360" width="18" height="34" rx="2"/>
+      <rect x="196" y="360" width="18" height="34" rx="2"/>
+      <rect x="222" y="360" width="18" height="34" rx="2"/>
+    </g>
+    <circle cx="556" cy="377" r="17" fill="#A87545" stroke="#0B1F2A" stroke-width="4"/>
+    <circle cx="612" cy="377" r="17" fill="#132B39" stroke="#0B1F2A" stroke-width="4"/>
+  </g>
+
+  <text x="140" y="472" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64" letter-spacing="1">PARALLEL STACKABLE · SMART BMS · CAN / RS485</text>
+  <g stroke="#A87545" stroke-width="2" fill="none"><path d="M140 492h520"/></g>
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">LITHIUM BATTERY</text>
+</svg>

@@ -1,0 +1,3 @@
+# Single-page app: every route is served by index.html so that a direct
+# visit to /projects/5kva-hybrid-solar-system does not 404 on Netlify.
+/*    /index.html   200

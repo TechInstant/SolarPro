@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a tall tubular deep cycle battery">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- body -->
+  <rect x="266" y="150" width="268" height="330" rx="10" fill="#132B39" stroke="#0B1F2A" stroke-width="5"/>
+  <rect x="266" y="150" width="268" height="54" rx="10" fill="#0B1F2A"/>
+  <rect x="266" y="188" width="268" height="16" fill="#0B1F2A"/>
+
+  <!-- vent caps -->
+  <g fill="#A87545" stroke="#07151D" stroke-width="3">
+    <circle cx="306" cy="176" r="12"/>
+    <circle cx="352" cy="176" r="12"/>
+    <circle cx="398" cy="176" r="12"/>
+    <circle cx="444" cy="176" r="12"/>
+    <circle cx="490" cy="176" r="12"/>
+  </g>
+
+  <!-- terminals -->
+  <rect x="286" y="112" width="44" height="40" rx="5" fill="#A87545" stroke="#07151D" stroke-width="4"/>
+  <rect x="470" y="112" width="44" height="40" rx="5" fill="#8A929B" stroke="#07151D" stroke-width="4"/>
+  <text x="308" y="100" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="20" fill="#4A5B64">+</text>
+  <text x="492" y="100" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="20" fill="#4A5B64">−</text>
+
+  <!-- label plate -->
+  <rect x="296" y="236" width="208" height="120" rx="4" fill="#F7F5EF"/>
+  <text x="400" y="278" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="30" fill="#0B1F2A" letter-spacing="1">220Ah</text>
+  <text x="400" y="308" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="18" fill="#4A5B64" letter-spacing="2">12V · C20</text>
+  <path d="M330 326h140" stroke="#A87545" stroke-width="3"/>
+  <text x="400" y="346" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64" letter-spacing="1">TALL TUBULAR PLATE</text>
+
+  <!-- electrolyte level window -->
+  <rect x="296" y="378" width="208" height="70" rx="4" fill="#0B1F2A" opacity=".55"/>
+  <g stroke="#65BA84" stroke-width="3" opacity=".9">
+    <path d="M316 420h168"/>
+  </g>
+  <text x="400" y="408" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="13" fill="#DDEEDC" letter-spacing="2">MAX LEVEL</text>
+
+  <!-- dimension -->
+  <g stroke="#4A5B64" stroke-width="1.5">
+    <path d="M580 150v330M570 150h20M570 480h20"/>
+  </g>
+  <text x="600" y="322" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64">505 mm</text>
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">DEEP CYCLE BATTERY</text>
+</svg>

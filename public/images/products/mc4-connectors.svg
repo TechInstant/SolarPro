@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a male and female MC4 solar connector pair">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- male connector -->
+  <g transform="translate(120 196)">
+    <path d="M0 22h74" stroke="#0B1F2A" stroke-width="26" stroke-linecap="round"/>
+    <rect x="74" y="-8" width="46" height="60" rx="8" fill="#132B39"/>
+    <rect x="120" y="-16" width="150" height="76" rx="10" fill="#0B1F2A"/>
+    <g fill="#132B39"><rect x="140" y="-4" width="12" height="52" rx="3"/><rect x="164" y="-4" width="12" height="52" rx="3"/><rect x="188" y="-4" width="12" height="52" rx="3"/></g>
+    <rect x="270" y="4" width="70" height="36" rx="6" fill="#0B1F2A"/>
+    <rect x="340" y="12" width="66" height="20" rx="10" fill="#A87545"/>
+    <text x="0" y="96" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64" letter-spacing="1">MALE · PIN 4 mm</text>
+  </g>
+
+  <!-- female connector -->
+  <g transform="translate(120 366)">
+    <path d="M0 22h74" stroke="#0B1F2A" stroke-width="26" stroke-linecap="round"/>
+    <rect x="74" y="-8" width="46" height="60" rx="8" fill="#132B39"/>
+    <rect x="120" y="-16" width="150" height="76" rx="10" fill="#0B1F2A"/>
+    <g fill="#132B39"><rect x="140" y="-4" width="12" height="52" rx="3"/><rect x="164" y="-4" width="12" height="52" rx="3"/><rect x="188" y="-4" width="12" height="52" rx="3"/></g>
+    <path d="M270 -4h54a26 26 0 0 1 0 52h-54z" fill="#0B1F2A"/>
+    <rect x="298" y="10" width="46" height="24" rx="12" fill="#F2EFE6" stroke="#0B1F2A" stroke-width="4"/>
+    <text x="0" y="96" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64" letter-spacing="1">FEMALE · SOCKET</text>
+  </g>
+
+  <!-- spec block -->
+  <g>
+    <path d="M560 180v240" stroke="#C9C2B2" stroke-width="2"/>
+    <text x="590" y="212" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#0B1F2A" letter-spacing="1">IP68 MATED</text>
+    <text x="590" y="250" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64">1500 V DC</text>
+    <text x="590" y="286" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64">39 A · 6 mm²</text>
+    <text x="590" y="322" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64">SNAP LOCK</text>
+    <text x="590" y="358" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#A87545">TÜV CERTIFIED</text>
+  </g>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">MC4 CONNECTOR PAIR</text>
+</svg>

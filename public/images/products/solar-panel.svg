@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a monocrystalline solar module">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- module body -->
+  <g transform="translate(400 300) skewY(-7)">
+    <rect x="-270" y="-160" width="540" height="320" fill="#0B1F2A" stroke="#07151D" stroke-width="6"/>
+    <rect x="-258" y="-148" width="516" height="296" fill="#122F3E"/>
+    <!-- cell grid -->
+    <g stroke="#2C566B" stroke-width="2">
+      <path d="M-172-148V148M-86-148V148M0-148V148M86-148V148M172-148V148"/>
+      <path d="M-258-74H258M-258 0H258M-258 74H258"/>
+    </g>
+    <!-- busbars -->
+    <g stroke="#7FA3B4" stroke-width="1.5" opacity=".8">
+      <path d="M-215-148V148M-129-148V148M-43-148V148M43-148V148M129-148V148M215-148V148"/>
+    </g>
+    <!-- light sheen -->
+    <path d="M-258-148h180L-258 60z" fill="#ffffff" opacity=".06"/>
+  </g>
+
+  <!-- frame callout -->
+  <g stroke="#A87545" stroke-width="2" fill="none">
+    <path d="M400 92v-34M340 58h120"/>
+  </g>
+  <text x="400" y="44" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="18" fill="#A87545" letter-spacing="2">ANODISED AL FRAME</text>
+
+  <!-- junction box -->
+  <rect x="612" y="392" width="78" height="42" rx="3" fill="#0B1F2A"/>
+  <path d="M651 434v46" stroke="#0B1F2A" stroke-width="5" fill="none"/>
+  <text x="700" y="500" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64">IP68 J-BOX</text>
+
+  <!-- dimension line -->
+  <g stroke="#4A5B64" stroke-width="1.5">
+    <path d="M118 528h564M118 518v20M682 518v20"/>
+  </g>
+  <text x="400" y="566" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#4A5B64" letter-spacing="1">2278 mm</text>
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">PV MODULE</text>
+</svg>

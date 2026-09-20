@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of an aluminium rail mounting kit with clamps">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- rail profile (cross-section) -->
+  <g transform="translate(150 160)">
+    <path d="M0 0h150v34H96v18h54v34H0V52h54V34H0z" fill="#8A929B" stroke="#0B1F2A" stroke-width="4"/>
+    <text x="0" y="122" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">RAIL SECTION 40×36</text>
+  </g>
+
+  <!-- rail length -->
+  <g transform="translate(150 330)">
+    <rect x="0" y="0" width="480" height="30" rx="3" fill="#8A929B" stroke="#0B1F2A" stroke-width="4"/>
+    <g fill="#F2EFE6">
+      <rect x="30" y="10" width="30" height="10" rx="2"/>
+      <rect x="120" y="10" width="30" height="10" rx="2"/>
+      <rect x="210" y="10" width="30" height="10" rx="2"/>
+      <rect x="300" y="10" width="30" height="10" rx="2"/>
+      <rect x="390" y="10" width="30" height="10" rx="2"/>
+    </g>
+    <g stroke="#4A5B64" stroke-width="1.5">
+      <path d="M0 64h480M0 54v20M480 54v20"/>
+    </g>
+    <text x="240" y="98" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">4200 mm ANODISED ALUMINIUM</text>
+  </g>
+
+  <!-- mid clamp -->
+  <g transform="translate(420 170)">
+    <rect x="0" y="0" width="58" height="22" rx="3" fill="#0B1F2A"/>
+    <rect x="20" y="22" width="18" height="46" rx="3" fill="#8A929B"/>
+    <rect x="0" y="68" width="58" height="16" rx="3" fill="#8A929B"/>
+    <text x="-6" y="118" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">MID CLAMP 35 mm</text>
+  </g>
+
+  <!-- end clamp -->
+  <g transform="translate(580 170)">
+    <path d="M0 0h52v22H28v46h24v16H0z" fill="#8A929B" stroke="#0B1F2A" stroke-width="4"/>
+    <text x="-6" y="118" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">END CLAMP</text>
+  </g>
+
+  <!-- roof hook -->
+  <g transform="translate(150 470)">
+    <path d="M0 0h96v18H36v26h70" fill="none" stroke="#8A929B" stroke-width="16" stroke-linecap="square"/>
+    <text x="0" y="74" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">ROOF HOOK / HANGER BOLT</text>
+  </g>
+
+  <text x="760" y="566" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">MOUNTING KIT</text>
+</svg>

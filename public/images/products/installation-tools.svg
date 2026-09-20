@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a solar installation tool kit with crimper, stripper and spanners">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- case outline -->
+  <rect x="80" y="110" width="640" height="380" rx="14" fill="none" stroke="#C9C2B2" stroke-width="4" stroke-dasharray="14 10"/>
+
+  <!-- ratchet crimper -->
+  <g transform="translate(150 180)">
+    <path d="M0 0h96l34 26H34z" fill="#0B1F2A"/>
+    <path d="M130 26l58 10 20 30-64 8z" fill="#132B39"/>
+    <path d="M14 34h104l30 26H44z" fill="#A87545"/>
+    <path d="M148 60l50 12 16 26-58 4z" fill="#A87545"/>
+    <text x="0" y="112" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">RATCHET CRIMPER</text>
+  </g>
+
+  <!-- wire stripper -->
+  <g transform="translate(430 178)">
+    <rect x="0" y="0" width="150" height="24" rx="12" fill="#0B1F2A"/>
+    <rect x="0" y="34" width="150" height="24" rx="12" fill="#3F8F5B"/>
+    <path d="M150 12h72l24 18-24 18h-72z" fill="#8A929B"/>
+    <text x="0" y="112" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">AUTO STRIPPER 0.5–6 mm²</text>
+  </g>
+
+  <!-- mc4 spanners -->
+  <g transform="translate(150 350)">
+    <path d="M0 0h130v22H0z" fill="#8A929B"/>
+    <path d="M130 -14h44v50h-44z" fill="#8A929B"/>
+    <circle cx="152" cy="11" r="15" fill="#F2EFE6"/>
+    <path d="M0 46h130v22H0z" fill="#8A929B"/>
+    <path d="M130 32h44v50h-44z" fill="#8A929B"/>
+    <circle cx="152" cy="57" r="15" fill="#F2EFE6"/>
+    <text x="0" y="118" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">MC4 SPANNER PAIR</text>
+  </g>
+
+  <!-- cable cutter -->
+  <g transform="translate(440 346)">
+    <path d="M20 0c40 8 70 26 96 52-30 14-60 14-96 2z" fill="#132B39"/>
+    <path d="M0 8h34v18H0z" fill="#A87545"/>
+    <path d="M0 40h34v18H0z" fill="#A87545"/>
+    <path d="M34 14l84 44" stroke="#8A929B" stroke-width="10" stroke-linecap="round"/>
+    <text x="0" y="122" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">CABLE CUTTER</text>
+  </g>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">INSTALLATION TOOLKIT</text>
+  <text x="760" y="566" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">12 PIECES</text>
+</svg>
