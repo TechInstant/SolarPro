@@ -1,48 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { MessageCircle } from 'lucide-react';
 import { getWhatsAppUrl, whatsappMessages } from '../../utils/whatsapp';
 import { companyConfig } from '../../config/company';
-import { cn } from '../../utils/cn';
-
-/** Pages that already lead with their own WhatsApp action. */
-const hiddenOn = ['/quote', '/contact'];
 
 /**
- * Persistent WhatsApp action. It appears once the visitor has scrolled
- * past the hero so it never competes with the first screen, stays clear of
- * the iOS home indicator, and shrinks to an icon on phones so it cannot sit
- * on top of the content underneath it.
+ * Persistent floating WhatsApp action on all pages.
  */
 export const WhatsAppFloatingButton: React.FC = () => {
-  const [visible, setVisible] = useState(false);
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 420);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  if (hiddenOn.includes(pathname)) return null;
-
   return (
-    <a
-      href={getWhatsAppUrl(whatsappMessages.general)}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={`Chat with an engineer on WhatsApp — ${companyConfig.whatsappDisplay}`}
-      className={cn(
-        'fixed right-4 z-30 inline-flex items-center justify-center gap-2.5 rounded-sm bg-[#1FA855] text-[14px] font-medium text-white shadow-raise',
-        'h-12 w-12 transition-all duration-300 ease-engineered hover:bg-[#178443]',
-        'sm:right-6 sm:w-auto sm:px-4',
-        'bottom-[calc(1rem+env(safe-area-inset-bottom))] sm:bottom-6',
-        visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
-      )}
-    >
-      <MessageCircle className="h-5 w-5 shrink-0" strokeWidth={1.75} />
-      <span className="hidden sm:inline">Chat with an engineer</span>
-    </a>
+    <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex items-center group">
+      <a
+        href={getWhatsAppUrl(whatsappMessages.general)}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Chat with an engineer on WhatsApp — ${companyConfig.whatsappDisplay}`}
+        className="relative flex items-center justify-center h-14 w-14 sm:h-14 sm:w-auto sm:px-4 sm:gap-2.5 rounded-full bg-[#25D366] hover:bg-[#20ba59] text-white shadow-2xl transition-all duration-300 hover:scale-105 active:scale-95"
+      >
+        {/* Subtle pulsing ping effect */}
+        <span className="absolute -inset-1 rounded-full bg-[#25D366] opacity-30 animate-ping pointer-events-none -z-10" />
+
+        <MessageCircle className="h-7 w-7 sm:h-6 sm:w-6 shrink-0 fill-white text-[#25D366]" />
+        <span className="hidden sm:inline font-semibold text-[13.5px] whitespace-nowrap tracking-wide">
+          Chat With Engineer
+        </span>
+      </a>
+    </div>
   );
 };
+

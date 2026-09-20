@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Search, Menu, Phone, MapPin } from 'lucide-react';
+import { Search, Menu } from 'lucide-react';
 import { Logo } from './Logo';
 import { MobileMenu } from './MobileMenu';
 import { SearchModal } from './SearchModal';
-import { companyConfig } from '../../config/company';
-import { telUrl } from '../../utils/whatsapp';
 import { cn } from '../../utils/cn';
 
 const navLinks = [
@@ -56,45 +54,16 @@ export const Navbar: React.FC = () => {
       </a>
 
       <header className="fixed inset-x-0 top-0 z-40">
-        {/* Utility strip — contact details always one glance away on desktop. */}
         <div
           className={cn(
-            'hidden overflow-hidden border-b border-navy-line bg-navy-deep transition-all duration-300 ease-engineered lg:block',
-            scrolled ? 'max-h-0 border-b-0 opacity-0' : 'max-h-12 opacity-100'
+            'bg-navy/95 backdrop-blur-md border-b border-navy-line/60 transition-all duration-300',
+            scrolled ? 'shadow-lg py-2.5' : 'py-3.5 lg:py-4'
           )}
         >
-          <div className="shell flex h-10 items-center justify-between font-mono text-[11px] uppercase tracking-[0.12em] text-cream-300/65">
-            <span className="flex items-center gap-2">
-              <MapPin className="h-3.5 w-3.5 text-bronze" strokeWidth={1.5} />
-              {companyConfig.serviceAreas.join(' · ')}
-            </span>
-            <span className="flex items-center gap-6">
-              <span>{companyConfig.businessHours.weekdays} Mon–Fri</span>
-              <a href={telUrl} className="flex items-center gap-2 text-cream hover:text-moss-bright">
-                <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
-                {companyConfig.phoneDisplay}
-              </a>
-            </span>
-          </div>
-        </div>
-
-        <div
-          className={cn(
-            'border-b bg-navy transition-all duration-300 ease-engineered',
-            scrolled
-              ? 'border-navy-line/90 shadow-[0_10px_30px_-24px_rgba(0,0,0,0.9)]'
-              : 'border-navy-line/60'
-          )}
-        >
-          <div
-            className={cn(
-              'shell flex items-center justify-between transition-all duration-300 ease-engineered',
-              scrolled ? 'h-[62px]' : 'h-[74px] lg:h-[82px]'
-            )}
-          >
+          <div className="shell flex items-center justify-between">
             <Logo tone="dark" />
 
-            <nav className="hidden items-center md:flex" aria-label="Main">
+            <nav className="hidden items-center md:flex space-x-1 lg:space-x-2" aria-label="Main">
               {navLinks.map((link) => (
                 <NavLink
                   key={link.name}
@@ -102,46 +71,36 @@ export const Navbar: React.FC = () => {
                   end={link.path === '/'}
                   className={({ isActive }) =>
                     cn(
-                      'relative px-3.5 py-2 text-[14px] font-medium transition-colors duration-200 lg:px-4',
-                      isActive ? 'text-cream' : 'text-cream-300/70 hover:text-cream'
+                      'px-3.5 py-1.5 text-[14px] font-medium transition-colors duration-200',
+                      isActive ? 'text-moss-bright font-semibold' : 'text-cream-300/80 hover:text-cream'
                     )
                   }
                 >
-                  {({ isActive }) => (
-                    <>
-                      {link.name}
-                      <span
-                        className={cn(
-                          'absolute inset-x-3.5 -bottom-px h-[2px] bg-bronze transition-opacity duration-200 lg:inset-x-4',
-                          isActive ? 'opacity-100' : 'opacity-0'
-                        )}
-                      />
-                    </>
-                  )}
+                  {link.name}
                 </NavLink>
               ))}
             </nav>
 
-            <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => setSearchOpen(true)}
                 aria-label="Search the site"
                 title="Search (Ctrl + K)"
-                className="tap flex w-11 items-center justify-center text-cream-300/75 transition-colors hover:text-cream"
+                className="flex h-9 w-9 items-center justify-center text-cream-300/75 transition-colors hover:text-cream"
               >
                 <Search className="h-[18px] w-[18px]" strokeWidth={1.75} />
               </button>
 
               <Link
                 to="/quote"
-                className="tap hidden items-center rounded-sm border border-moss bg-moss px-5 text-[14px] font-medium text-white transition-colors hover:border-moss-dark hover:bg-moss-dark sm:inline-flex"
+                className="hidden items-center rounded-md bg-moss hover:bg-moss-dark px-4 py-2 text-[13.5px] font-medium text-white transition-colors sm:inline-flex shadow-sm"
               >
                 Request a Quote
               </Link>
 
               <Link
                 to="/quote"
-                className="tap inline-flex items-center rounded-sm border border-moss bg-moss px-4 text-[14px] font-medium text-white sm:hidden"
+                className="inline-flex items-center rounded-md bg-moss hover:bg-moss-dark px-3 py-1.5 text-[13px] font-medium text-white sm:hidden"
               >
                 Quote
               </Link>
@@ -150,7 +109,7 @@ export const Navbar: React.FC = () => {
                 onClick={() => setMenuOpen(true)}
                 aria-label="Open menu"
                 aria-expanded={menuOpen}
-                className="tap -mr-2 flex w-11 items-center justify-center text-cream md:hidden"
+                className="flex h-9 w-9 items-center justify-center text-cream md:hidden"
               >
                 <Menu className="h-6 w-6" strokeWidth={1.5} />
               </button>
@@ -164,3 +123,4 @@ export const Navbar: React.FC = () => {
     </>
   );
 };
+

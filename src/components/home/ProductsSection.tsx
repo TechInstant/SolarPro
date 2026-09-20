@@ -1,100 +1,101 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle } from 'lucide-react';
-import { SectionHeader } from '../ui/SectionHeader';
-import { Button } from '../ui/Button';
-import { ProductCard } from '../cards/ProductCard';
-import { ProductModal } from '../common/ProductModal';
-import { SmartImage } from '../ui/SmartImage';
-import { productsData, productCategoryRail } from '../../data/products';
-import { getWhatsAppUrl, whatsappMessages } from '../../utils/whatsapp';
-import { useReveal } from '../../hooks/useReveal';
-import type { Product } from '../../types';
+import { ArrowRight } from 'lucide-react';
+
+const categories = [
+  {
+    name: 'Solar Panels',
+    category: 'Panels',
+    image: '/images/products/solar-panel.svg',
+  },
+  {
+    name: 'Inverters',
+    category: 'Inverters',
+    image: '/images/products/hybrid-inverter.svg',
+  },
+  {
+    name: 'Lithium Batteries',
+    category: 'Lithium Batteries',
+    image: '/images/products/lithium-battery.svg',
+  },
+  {
+    name: 'Deep Cycle Batteries',
+    category: 'Deep Cycle Batteries',
+    image: '/images/products/tubular-battery.svg',
+  },
+  {
+    name: 'Charge Controllers',
+    category: 'Charge Controllers',
+    image: '/images/products/mppt-controller.svg',
+  },
+  {
+    name: 'Solar Cables',
+    category: 'Solar Cables',
+    image: '/images/products/solar-cable.svg',
+  },
+  {
+    name: 'MC4 Connectors',
+    category: 'MC4 Connectors',
+    image: '/images/products/mc4-connectors.svg',
+  },
+  {
+    name: 'Installation Tools',
+    category: 'Installation Tools',
+    image: '/images/products/installation-tools.svg',
+  },
+];
 
 export const ProductsSection: React.FC = () => {
-  const [enquiry, setEnquiry] = useState<Product | null>(null);
-  const ref = useReveal<HTMLDivElement>();
-
-  const featured = productsData.filter((product) => product.featured).slice(0, 4);
-
   return (
-    <section id="products" className="bg-cream-100 py-16 sm:py-20 lg:py-24">
+    <section id="products" className="bg-cream-50 py-16 lg:py-20">
       <div className="shell">
-        <SectionHeader
-          eyebrow="Equipment & tools"
-          title="Quality Equipment. Professional Tools."
-          description="We supply genuine solar equipment and professional installation tools. Tell us what you need and we will confirm price, stock and delivery on WhatsApp."
-          action={
-            <Button
-              to="/products"
-              variant="outline"
-              size="sm"
-              trailingIcon={<ArrowRight className="h-4 w-4" strokeWidth={1.75} />}
-              className="hidden md:inline-flex"
-            >
-              Full catalogue
-            </Button>
-          }
-        />
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div className="max-w-2xl">
+            <p className="font-mono text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.2em] text-moss-dark">
+              Products & Tools
+            </p>
+            <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-navy">
+              Quality Equipment. Professional Tools.
+            </h2>
+            <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">
+              We supply genuine solar equipment and professional tools at competitive prices.
+            </p>
+          </div>
 
-        {/* Category rail — scrolls on mobile rather than wrapping into a cramped grid. */}
-        <div className="rail -mx-5 mt-9 gap-2 px-5 sm:mx-0 sm:flex-wrap sm:px-0">
-          {productCategoryRail.map((item) => (
+          <Link
+            to="/products"
+            className="inline-flex items-center gap-1.5 text-[14px] font-semibold text-moss-dark hover:text-moss transition-colors shrink-0"
+          >
+            View All Products
+            <ArrowRight className="h-4 w-4" strokeWidth={2} />
+          </Link>
+        </div>
+
+        {/* 8 Product Categories Grid */}
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+          {categories.map((cat) => (
             <Link
-              key={item.category}
-              to={`/products?category=${encodeURIComponent(item.category)}`}
-              className="tap inline-flex shrink-0 items-center rounded-sm border border-cream-300 bg-white px-4 text-[13px] font-medium text-ink-soft transition-colors hover:border-navy hover:text-navy"
+              key={cat.name}
+              to={`/products?category=${encodeURIComponent(cat.category)}`}
+              className="group flex flex-col items-center justify-between rounded-xl border border-cream-300/80 bg-white p-4 text-center shadow-sm transition-all duration-300 hover:border-moss/50 hover:shadow-md"
             >
-              {item.label}
+              <div className="flex h-28 w-full items-center justify-center p-2">
+                <img
+                  src={cat.image}
+                  alt={cat.name}
+                  className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
+              </div>
+              <span className="mt-3 text-[13px] font-bold text-navy group-hover:text-moss-dark transition-colors leading-tight">
+                {cat.name}
+              </span>
             </Link>
           ))}
         </div>
-
-        <div ref={ref} className="reveal mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-          {featured.map((product) => (
-            <ProductCard key={product.id} product={product} onEnquire={setEnquiry} />
-          ))}
-        </div>
-
-        {/* Supply note — the honest version of a "shop" without a checkout. */}
-        <div className="mt-6 grid gap-px border border-cream-300 bg-cream-300 md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
-          <div className="bg-white p-6 sm:p-8">
-            <h3 className="font-display text-[19px] font-semibold text-navy">
-              Buying equipment without an installer?
-            </h3>
-            <p className="mt-3 text-[15px] leading-relaxed text-ink-soft">
-              That is fine — we sell to homeowners and to other installers. Send the list, or the
-              inverter model you are matching, and you will get a price, current stock and a
-              straight answer on whether the parts actually work together.
-            </p>
-            <div className="mt-6 flex flex-col gap-2.5 sm:flex-row">
-              <Button
-                href={getWhatsAppUrl(whatsappMessages.general)}
-                variant="whatsapp"
-                leadingIcon={<MessageCircle className="h-4 w-4" strokeWidth={1.75} />}
-              >
-                Ask about stock
-              </Button>
-              <Button
-                to="/products"
-                variant="outline"
-                trailingIcon={<ArrowRight className="h-4 w-4" strokeWidth={1.75} />}
-              >
-                Browse catalogue
-              </Button>
-            </div>
-          </div>
-
-          <SmartImage
-            src="/images/services/inverter-installation.jpg"
-            alt="Wall-mounted inverter and battery installation"
-            ratio="aspect-[16/10] md:aspect-auto md:h-full"
-            wrapperClassName="bg-cream-100"
-          />
-        </div>
       </div>
-
-      <ProductModal product={enquiry} onClose={() => setEnquiry(null)} />
     </section>
   );
 };
+

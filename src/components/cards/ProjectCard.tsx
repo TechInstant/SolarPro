@@ -1,123 +1,79 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, MapPin } from 'lucide-react';
-import { SmartImage } from '../ui/SmartImage';
+import { ArrowRight, MapPin, Home, Building2, Church, Zap } from 'lucide-react';
 import type { Project } from '../../types';
 import { cn } from '../../utils/cn';
 
 interface ProjectCardProps {
   project: Project;
+  size?: 'default' | 'feature' | string;
   tone?: 'light' | 'dark';
-  /** 'feature' gives the card a taller image — used for the first item in a grid. */
-  size?: 'default' | 'feature';
   className?: string;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({
-  project,
-  tone = 'light',
-  size = 'default',
-  className,
-}) => {
-  const dark = tone === 'dark';
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) => {
+  const CategoryIcon =
+    project.category === 'Residential'
+      ? Home
+      : project.category === 'Commercial'
+      ? Building2
+      : project.category === 'Church'
+      ? Church
+      : Zap;
 
   return (
     <article
       className={cn(
-        'group flex h-full flex-col border transition-colors duration-300 ease-engineered',
-        dark
-          ? 'border-navy-line bg-navy hover:border-moss/60'
-          : 'border-cream-300 bg-white hover:border-navy/35',
+        'group flex h-full flex-col justify-between overflow-hidden rounded-xl border border-navy-line bg-white shadow-lg transition-all duration-300 hover:border-moss/50 hover:shadow-xl',
         className
       )}
     >
-      <Link to={`/projects/${project.slug}`} className="block overflow-hidden">
-        <div className="relative">
-          <SmartImage
+      <div>
+        <Link to={`/projects/${project.slug}`} className="block overflow-hidden relative aspect-[16/10] bg-navy-800">
+          <img
             src={project.coverImage}
-            alt={project.coverAlt}
-            ratio={size === 'feature' ? 'aspect-[16/10] sm:aspect-[16/9]' : 'aspect-[4/3]'}
-            className="transition-transform duration-[600ms] ease-engineered group-hover:scale-[1.035]"
+            alt={project.coverAlt || project.title}
+            className="h-full w-full object-cover transition-transform duration-500 ease-engineered group-hover:scale-105"
+            loading="lazy"
           />
-          <span
-            className={cn(
-              'absolute left-0 top-0 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em]',
-              dark ? 'bg-navy-deep/90 text-cream-300' : 'bg-navy/90 text-cream'
-            )}
-          >
-            {project.category}
-          </span>
-          {project.isExample && (
-            <span className="absolute right-0 top-0 bg-bronze/95 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-white">
-              Example project
-            </span>
-          )}
+        </Link>
+
+        <div className="p-4 sm:p-5">
+          <h3 className="text-[15.5px] sm:text-[16px] font-bold text-navy group-hover:text-moss-dark transition-colors line-clamp-1">
+            <Link to={`/projects/${project.slug}`}>{project.title}</Link>
+          </h3>
+
+          <div className="mt-3 space-y-1.5 text-[12px] text-ink-muted">
+            <div className="flex items-center gap-2">
+              <CategoryIcon className="h-3.5 w-3.5 text-moss-dark shrink-0" strokeWidth={1.75} />
+              <span className="truncate">{project.clientType || `${project.category} Installation`}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="h-3.5 w-3.5 text-moss-dark shrink-0" strokeWidth={1.75} />
+              <span className="truncate">{project.location}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Zap className="h-3.5 w-3.5 text-moss-dark shrink-0" strokeWidth={1.75} />
+              <span className="truncate">{project.capacity.split('·')[0].trim()} Solar System</span>
+            </div>
+          </div>
+
+          <p className="mt-3 text-[12.5px] leading-snug text-ink-soft line-clamp-2">
+            {project.summary}
+          </p>
         </div>
-      </Link>
+      </div>
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <p
-          className={cn(
-            'flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.12em]',
-            dark ? 'text-cream-300/55' : 'text-ink-muted'
-          )}
+      <div className="px-4 pb-4 sm:px-5 sm:pb-5">
+        <Link
+          to={`/projects/${project.slug}`}
+          className="inline-flex items-center gap-1.5 text-[12.5px] font-semibold text-moss-dark transition-colors hover:text-moss group-hover:text-moss-dark"
         >
-          <span className={dark ? 'text-moss-bright' : 'text-moss-dark'}>{project.capacity}</span>
-          <span className="inline-flex items-center gap-1.5">
-            <MapPin className="h-3 w-3" strokeWidth={1.75} />
-            {project.location}
-          </span>
-        </p>
-
-        <h3
-          className={cn(
-            'mt-3 font-display text-lg font-semibold leading-snug sm:text-xl',
-            dark ? 'text-cream' : 'text-navy'
-          )}
-        >
-          <Link to={`/projects/${project.slug}`} className="hover:underline underline-offset-4">
-            {project.title}
-          </Link>
-        </h3>
-
-        <p
-          className={cn(
-            'mt-3 flex-1 text-[14.5px] leading-relaxed',
-            dark ? 'text-cream-300/70' : 'text-ink-soft'
-          )}
-        >
-          {project.summary}
-        </p>
-
-        <div
-          className={cn(
-            'mt-5 flex items-center justify-between border-t pt-4',
-            dark ? 'border-navy-line' : 'border-cream-200'
-          )}
-        >
-          <Link
-            to={`/projects/${project.slug}`}
-            className={cn(
-              'inline-flex items-center gap-1.5 text-[14px] font-medium transition-colors',
-              dark ? 'text-cream hover:text-moss-bright' : 'text-navy hover:text-moss-dark'
-            )}
-          >
-            View case study
-            <ArrowUpRight
-              className="h-4 w-4 transition-transform duration-200 ease-engineered group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              strokeWidth={1.75}
-            />
-          </Link>
-          <span
-            className={cn(
-              'font-mono text-[11px] uppercase tracking-[0.12em]',
-              dark ? 'text-cream-300/40' : 'text-ink-muted'
-            )}
-          >
-            {project.completionDate}
-          </span>
-        </div>
+          View Details
+          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} />
+        </Link>
       </div>
     </article>
   );
 };
+

@@ -1,85 +1,168 @@
 import React from 'react';
-import { ArrowRight, Check } from 'lucide-react';
-import { Button } from '../ui/Button';
-import { SmartImage } from '../ui/SmartImage';
-import { companyConfig } from '../../config/company';
+import { ArrowRight, CheckCircle2, ShieldCheck, Tag, Cpu, LifeBuoy, Wrench, HardHat } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { siteImages } from '../../config/images';
-import { useReveal } from '../../hooks/useReveal';
 
-const capabilities = [
-  { title: 'Professional Installation', detail: 'Carried out and signed off by the engineer on site.' },
-  { title: 'Quality Equipment', detail: 'Tier-1 modules, genuine inverters, traceable batteries.' },
-  { title: 'System Design', detail: 'Sized from measured load, not from a price list.' },
-  { title: 'Testing & Commissioning', detail: 'Documented results handed over with the system.' },
-  { title: 'Maintenance & Support', detail: 'Scheduled servicing and a number that answers.' },
-  { title: 'Fault Diagnosis', detail: 'Including systems installed by somebody else.' },
+const whyChooseItems = [
+  {
+    icon: HardHat,
+    title: 'Professional Installation',
+    detail: 'By certified and experienced hands.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Quality Equipment',
+    detail: 'Genuine and durable products.',
+  },
+  {
+    icon: Tag,
+    title: 'Transparent Pricing',
+    detail: 'No hidden costs.',
+  },
+  {
+    icon: Cpu,
+    title: 'Proper System Design',
+    detail: 'Tailored to your power needs.',
+  },
+  {
+    icon: LifeBuoy,
+    title: 'After-Sales Support',
+    detail: "We're with you always.",
+  },
+  {
+    icon: Wrench,
+    title: 'Maintenance Services',
+    detail: 'Keep your system running.',
+  },
+];
+
+const howItWorksSteps = [
+  {
+    step: '01',
+    title: 'Tell Us Your Power Needs',
+    detail: 'Share your requirements and location.',
+  },
+  {
+    step: '02',
+    title: 'Get a System Recommendation',
+    detail: 'We design the right solution for you.',
+  },
+  {
+    step: '03',
+    title: 'Installation & Testing',
+    detail: 'Professional setup and full testing.',
+  },
+  {
+    step: '04',
+    title: 'Ongoing Support',
+    detail: 'Maintenance and customer care.',
+  },
 ];
 
 export const EngineerSection: React.FC = () => {
-  const ref = useReveal<HTMLDivElement>();
-
   return (
-    <section id="engineer" className="bg-cream-50 py-16 sm:py-20 lg:py-24">
-      <div ref={ref} className="shell reveal">
-        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
-          <div className="relative">
-            <SmartImage
-              src={siteImages.about.portrait}
-              alt={siteImages.about.portraitAlt}
-              ratio="aspect-[4/5]"
-              wrapperClassName="border border-cream-300"
-            />
-            {/* Name plate — deliberately reads like a stamped drawing title block. */}
-            <div className="border border-t-0 border-cream-300 bg-white px-5 py-4">
-              <p className="font-display text-[16px] font-semibold text-navy">
-                {companyConfig.leadEngineer.name}
+    <section id="about" className="bg-cream-100 py-16 lg:py-20 border-t border-cream-200">
+      <div className="shell">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+          {/* Column 1: About the Engineer (5 cols on lg) */}
+          <div className="lg:col-span-5 flex flex-col sm:flex-row gap-6 items-center sm:items-start">
+            {/* Portrait image - large and prominent on mobile & desktop */}
+            <div className="w-full max-w-xs sm:w-48 lg:w-52 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-cream-300 bg-white">
+              <img
+                src={siteImages.about.portrait}
+                alt="Lead Solar Engineer"
+                className="w-full h-72 sm:h-80 lg:h-84 object-cover object-top transition-transform duration-500 hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Engineer Info */}
+            <div className="flex-1 text-left">
+              <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-moss-dark">
+                About the Engineer
               </p>
-              <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-muted">
-                {companyConfig.leadEngineer.title}
+              <h2 className="mt-1.5 text-xl sm:text-2xl font-bold tracking-tight text-navy">
+                Experienced. Certified. Trusted.
+              </h2>
+              <p className="mt-2.5 text-[13px] leading-relaxed text-ink-soft">
+                I'm a professional solar installation engineer with years of hands-on experience in renewable energy solutions. I deliver reliable, efficient and cost-effective solar systems for homes, businesses and institutions.
               </p>
+
+              {/* 4 Checkmarks */}
+              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-[12.5px] font-medium text-navy">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-moss-dark shrink-0" />
+                  <span>5+ Years Experience</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-moss-dark shrink-0" />
+                  <span>Certified Solar Installer</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-moss-dark shrink-0" />
+                  <span>Solar PV & Electrical Expert</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-moss-dark shrink-0" />
+                  <span>50+ Projects Completed</span>
+                </div>
+              </div>
+
+              <div className="mt-5">
+                <Link
+                  to="/about"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-cream-300 bg-white hover:bg-cream-50 px-5 py-2 text-[13px] font-semibold text-navy shadow-sm transition-colors"
+                >
+                  About Me
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+                </Link>
+              </div>
             </div>
           </div>
 
-          <div>
-            <p className="eyebrow">About the engineer</p>
-            <h2 className="mt-4 text-display-sm font-semibold text-navy sm:text-display-md">
-              Experienced. Certified. Trusted.
-            </h2>
 
-            <p className="mt-5 max-w-xl text-[16px] leading-relaxed text-ink-soft">
-              I'm a professional solar installation engineer focused on delivering reliable,
-              efficient and cost-effective energy solutions for homes, businesses and institutions.
-            </p>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-              {companyConfig.leadEngineer.shortBio}
-            </p>
+          {/* Column 2: Why Choose Us (4 cols on lg) */}
+          <div className="lg:col-span-4 lg:border-l lg:border-cream-300 lg:pl-8">
+            <h3 className="text-base font-bold uppercase tracking-wider text-navy mb-5">
+              Why Choose Us
+            </h3>
 
-            <ul className="mt-8 grid gap-px bg-cream-300 sm:grid-cols-2">
-              {capabilities.map((item) => (
-                <li key={item.title} className="bg-cream-50 px-4 py-4 sm:px-5">
-                  <span className="flex items-start gap-3">
-                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-moss-dark" strokeWidth={2} aria-hidden />
-                    <span>
-                      <span className="block text-[14.5px] font-medium text-navy">{item.title}</span>
-                      <span className="mt-1 block text-[13.5px] leading-snug text-ink-muted">
-                        {item.detail}
-                      </span>
-                    </span>
-                  </span>
-                </li>
+            <div className="space-y-4">
+              {whyChooseItems.map((item) => (
+                <div key={item.title} className="flex items-start gap-3">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-moss/15 text-moss-dark">
+                    <item.icon className="h-3.5 w-3.5" strokeWidth={2} />
+                  </div>
+                  <div>
+                    <h4 className="text-[13.5px] font-bold text-navy leading-tight">{item.title}</h4>
+                    <p className="text-[12px] text-ink-muted leading-tight mt-0.5">{item.detail}</p>
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
+          </div>
 
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button
-                to="/about"
-                trailingIcon={<ArrowRight className="h-4 w-4" strokeWidth={1.75} />}
-              >
-                About me
-              </Button>
-              <Button to="/projects" variant="outline">
-                See the work
-              </Button>
+          {/* Column 3: How It Works (3 cols on lg) */}
+          <div className="lg:col-span-3 lg:border-l lg:border-cream-300 lg:pl-8">
+            <h3 className="text-base font-bold uppercase tracking-wider text-navy mb-5">
+              How It Works
+            </h3>
+
+            <div className="relative space-y-6">
+              {/* Connecting vertical line */}
+              <div className="absolute left-3.5 top-3 bottom-3 w-0.5 bg-moss/20 -z-0" />
+
+              {howItWorksSteps.map((step) => (
+                <div key={step.step} className="relative z-10 flex items-start gap-3.5">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-moss text-white font-mono text-xs font-bold shadow-sm">
+                    {step.step}
+                  </div>
+                  <div>
+                    <h4 className="text-[13.5px] font-bold text-navy leading-tight">{step.title}</h4>
+                    <p className="text-[12px] text-ink-muted leading-tight mt-0.5">{step.detail}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -87,3 +170,4 @@ export const EngineerSection: React.FC = () => {
     </section>
   );
 };
+

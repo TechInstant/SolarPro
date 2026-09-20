@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowUp, Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react';
 import { Logo } from './Logo';
 import { companyConfig } from '../../config/company';
-import { getWhatsAppUrl, whatsappMessages, telUrl } from '../../utils/whatsapp';
 
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" className="h-4 w-4 fill-current" aria-hidden>
@@ -31,173 +29,135 @@ const YoutubeIcon = () => (
 
 const quickLinks = [
   { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Projects', to: '/projects' },
-  { label: 'Products', to: '/products' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
+  { label: 'Projects', to: '/projects' },
 ];
 
 const serviceLinks = [
-  { label: 'Solar Installation', to: '/services/solar-panel-installation' },
-  { label: 'Inverter Installation', to: '/services/inverter-installation' },
-  { label: 'Battery Systems', to: '/services/battery-energy-storage' },
+  { label: 'Installation', to: '/services/solar-panel-installation' },
   { label: 'Maintenance', to: '/services/solar-system-maintenance' },
-  { label: 'Consultation & Design', to: '/services/solar-system-design' },
+  { label: 'Consultation', to: '/services/solar-system-design' },
+  { label: 'Solar Design', to: '/services/solar-system-design' },
 ];
 
 const productLinks = [
   { label: 'Solar Panels', to: '/products?category=Panels' },
   { label: 'Inverters', to: '/products?category=Inverters' },
   { label: 'Batteries', to: '/products?category=Lithium+Batteries' },
-  { label: 'Cables & Connectors', to: '/products?category=Solar+Cables' },
-  { label: 'Installation Tools', to: '/products?category=Installation+Tools' },
+  { label: 'Tools & Accessories', to: '/products?category=Installation+Tools' },
 ];
 
-const socials = [
-  { key: 'facebook', label: 'Facebook', icon: <FacebookIcon />, href: companyConfig.socialLinks.facebook },
-  { key: 'instagram', label: 'Instagram', icon: <InstagramIcon />, href: companyConfig.socialLinks.instagram },
-  { key: 'linkedin', label: 'LinkedIn', icon: <LinkedinIcon />, href: companyConfig.socialLinks.linkedin },
-  { key: 'youtube', label: 'YouTube', icon: <YoutubeIcon />, href: companyConfig.socialLinks.youtube },
-].filter((s) => Boolean(s.href));
-
 export const Footer: React.FC = () => (
-  <footer className="border-t border-navy-line bg-navy-deep">
-    <div className="shell py-14 sm:py-16">
-      <div className="grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-12">
-        {/* Brand */}
-        <div className="col-span-2 lg:col-span-4">
+  <footer className="border-t border-navy-line bg-navy-deep text-cream">
+    <div className="shell py-12 lg:py-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        {/* Brand Column */}
+        <div className="lg:col-span-2">
           <Logo tone="dark" />
-          <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-cream-300/70">
-            Solar installation, inverter systems, batteries and maintenance — designed,
-            installed and commissioned by a qualified engineer.
+          <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-cream-300/70">
+            Reliable energy solutions, professionally delivered.
           </p>
-          <div className="mt-6 flex gap-2">
-            {socials.map((social) => (
-              <a
-                key={social.key}
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={social.label}
-                className="flex h-10 w-10 items-center justify-center border border-navy-line text-cream-300/70 transition-colors hover:border-moss hover:text-moss-bright"
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
         </div>
 
-        <nav className="lg:col-span-2" aria-label="Quick links">
-          <h2 className="eyebrow mb-4 text-cream-300/60">Quick Links</h2>
-          <ul className="space-y-3 text-[15px]">
+        {/* Quick Links */}
+        <div>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-cream-300/60 mb-4">
+            Quick Links
+          </h3>
+          <ul className="space-y-2.5 text-[13px]">
             {quickLinks.map((link) => (
               <li key={link.label}>
-                <Link to={link.to} className="text-cream-300/75 transition-colors hover:text-cream">
+                <Link to={link.to} className="text-cream-300/80 transition-colors hover:text-moss-bright">
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
 
-        <nav className="lg:col-span-2" aria-label="Services">
-          <h2 className="eyebrow mb-4 text-cream-300/60">Services</h2>
-          <ul className="space-y-3 text-[15px]">
+        {/* Services */}
+        <div>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-cream-300/60 mb-4">
+            Services
+          </h3>
+          <ul className="space-y-2.5 text-[13px]">
             {serviceLinks.map((link) => (
               <li key={link.label}>
-                <Link to={link.to} className="text-cream-300/75 transition-colors hover:text-cream">
+                <Link to={link.to} className="text-cream-300/80 transition-colors hover:text-moss-bright">
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
+        </div>
 
-        <nav className="lg:col-span-2" aria-label="Products">
-          <h2 className="eyebrow mb-4 text-cream-300/60">Products</h2>
-          <ul className="space-y-3 text-[15px]">
+        {/* Products */}
+        <div>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-cream-300/60 mb-4">
+            Products
+          </h3>
+          <ul className="space-y-2.5 text-[13px]">
             {productLinks.map((link) => (
               <li key={link.label}>
-                <Link to={link.to} className="text-cream-300/75 transition-colors hover:text-cream">
+                <Link to={link.to} className="text-cream-300/80 transition-colors hover:text-moss-bright">
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
-        </nav>
 
-        <div className="col-span-2 lg:col-span-2">
-          <h2 className="eyebrow mb-4 text-cream-300/60">Contact</h2>
-          <ul className="space-y-3.5 text-[15px]">
-            <li>
+          <div className="mt-6">
+            <h4 className="text-[11px] font-semibold uppercase tracking-wider text-cream-300/60 mb-2">
+              Follow Us
+            </h4>
+            <div className="flex items-center gap-3">
               <a
-                href={telUrl}
-                className="flex items-start gap-2.5 text-cream-300/75 transition-colors hover:text-cream"
-              >
-                <Phone className="mt-0.5 h-4 w-4 shrink-0 text-moss" strokeWidth={1.5} />
-                {companyConfig.phoneDisplay}
-              </a>
-            </li>
-            <li>
-              <a
-                href={getWhatsAppUrl(whatsappMessages.general)}
+                href={companyConfig.socialLinks.facebook}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-start gap-2.5 text-cream-300/75 transition-colors hover:text-cream"
+                aria-label="Facebook"
+                className="text-cream-300/70 hover:text-moss-bright transition-colors"
               >
-                <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-moss" strokeWidth={1.5} />
-                WhatsApp
+                <FacebookIcon />
               </a>
-            </li>
-            <li>
               <a
-                href={`mailto:${companyConfig.email}`}
-                className="flex items-start gap-2.5 break-all text-cream-300/75 transition-colors hover:text-cream"
+                href={companyConfig.socialLinks.instagram}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                className="text-cream-300/70 hover:text-moss-bright transition-colors"
               >
-                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-moss" strokeWidth={1.5} />
-                {companyConfig.email}
+                <InstagramIcon />
               </a>
-            </li>
-            <li className="flex items-start gap-2.5 text-cream-300/75">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-moss" strokeWidth={1.5} />
-              <span>
-                {companyConfig.address}
-                <br />
-                {companyConfig.city}, {companyConfig.country}
-              </span>
-            </li>
-            <li className="flex items-start gap-2.5 text-cream-300/75">
-              <Clock className="mt-0.5 h-4 w-4 shrink-0 text-moss" strokeWidth={1.5} />
-              <span>
-                Mon–Fri {companyConfig.businessHours.weekdays}
-                <br />
-                Sat {companyConfig.businessHours.saturday}
-              </span>
-            </li>
-          </ul>
+              <a
+                href={companyConfig.socialLinks.youtube}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+                className="text-cream-300/70 hover:text-moss-bright transition-colors"
+              >
+                <YoutubeIcon />
+              </a>
+              <a
+                href={companyConfig.socialLinks.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="text-cream-300/70 hover:text-moss-bright transition-colors"
+              >
+                <LinkedinIcon />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div className="border-t border-navy-line">
-      <div className="shell flex flex-col items-center justify-between gap-4 py-6 font-mono text-[11px] uppercase tracking-[0.12em] text-cream-300/50 sm:flex-row">
-        <p>
-          © {new Date().getFullYear()} {companyConfig.name}
-        </p>
-        <div className="flex items-center gap-6">
-          <Link to="/quote" className="transition-colors hover:text-cream">
-            Request a Quote
-          </Link>
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="inline-flex items-center gap-1.5 transition-colors hover:text-cream"
-          >
-            Top
-            <ArrowUp className="h-3.5 w-3.5" strokeWidth={1.75} />
-          </button>
-        </div>
+      {/* Bottom Copyright */}
+      <div className="mt-12 pt-6 border-t border-navy-line/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-cream-300/50">
+        <p>© {new Date().getFullYear()} SolarPro Engineering. All rights reserved.</p>
       </div>
     </div>
   </footer>
 );
+
