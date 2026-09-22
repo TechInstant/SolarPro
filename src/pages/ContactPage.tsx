@@ -174,10 +174,10 @@ export const ContactPage: React.FC = () => {
                 className="h-[280px] w-full sm:h-[380px]"
               />
             </div>
-            <p className="mt-3 text-[13px] text-ink-muted">
+            {/* <p className="mt-3 text-[13px] text-ink-muted">
               Replace the address in <code className="font-mono">src/config/company.ts</code> and
               this map follows it.
-            </p>
+            </p> */}
           </div>
         </div>
       </section>

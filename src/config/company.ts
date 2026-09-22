@@ -85,11 +85,11 @@ export const companyConfig: CompanyConfig = {
         'CCTV cameras, electric fencing and barbed wire, smart security systems and access control.',
     },
   },
-  foundedYear: 2018,
+  foundedYear: 2020,
   rcNumber: 'RC — add your CAC number',
 
   leadEngineer: {
-    name: 'Engr. Sam Adeyinka',
+    name: 'Engr. Samuel Adeyinka',
     title: 'Lead Engineer — Solar, Power & Security Systems',
     experienceYears: 8,
     completedProjects: 120,
@@ -112,16 +112,16 @@ export const companyConfig: CompanyConfig = {
   // PLACEHOLDER — replace with the real ELVOLTE email before going live.
   email: 'info@elvolte.com',
 
-  address: 'Plot 14, Commercial Avenue, Victoria Island',
-  city: 'Lagos',
-  state: 'Lagos State',
+  address: 'OAU Road, Opposite Lagere market',
+  city: 'Ile-Ife',
+  state: 'Osun State',
   country: 'Nigeria',
   serviceAreas: ['Lagos', 'Abuja', 'Port Harcourt', 'Ibadan', 'Enugu'],
-  mapQuery: 'Victoria Island, Lagos, Nigeria',
+  mapQuery: 'Ile-Ife, Osun state, Nigeria',
 
   businessHours: {
-    weekdays: '8:00 AM – 6:00 PM',
-    saturday: '9:00 AM – 4:00 PM',
+    weekdays: '8:00 AM - 6:00 PM',
+    saturday: '9:00 AM - 4:00 PM',
     sunday: 'Emergency support only',
   },
 
