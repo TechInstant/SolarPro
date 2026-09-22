@@ -37,7 +37,10 @@ export const siteImages = {
   ogImage: '/images/brand/og-cover.jpg',
 
   about: {
-    portrait: '/images/about/engineer-portrait.jpg',
+    // The ?v= is a one-time cache-buster for browsers that cached the previous
+    // portrait. If you replace this photo again and an old copy lingers in a
+    // browser, bump the number (?v=3, ?v=4 …) — the file name itself stays put.
+    portrait: '/images/about/engineer-portrait.jpg?v=2',
     portraitAlt: 'Portrait of the lead solar engineer wearing a safety helmet',
     onSite: '/images/about/engineer-on-site.jpg',
     onSiteAlt: 'Engineer in a high-visibility vest inspecting a ground-mounted solar array',
