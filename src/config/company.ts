@@ -10,10 +10,20 @@ export interface CompanyConfig {
   name: string;
   shortName: string;
   legalName: string;
+  /** The four words under the logo and in the hero eyebrow. */
+  pillars: string[];
+  /** Full brand line: "Powering Possibilities. Securing the Future. Driven by Technology." */
+  brandMessage: string;
   tagline: string;
   taglineLead: string;
   taglineAccent: string;
+  taglineTail: string;
   secondaryMessage: string;
+  /** One-line description of each half of the business. */
+  divisions: {
+    solar: { name: string; summary: string };
+    security: { name: string; summary: string };
+  };
   foundedYear: number;
   rcNumber: string;
   leadEngineer: {
@@ -52,30 +62,45 @@ export interface CompanyConfig {
 }
 
 export const companyConfig: CompanyConfig = {
-  name: 'SolarPro Engineering',
-  shortName: 'SolarPro',
-  legalName: 'SolarPro Engineering Services',
-  tagline: 'Reliable Solar Power. Professionally Installed.',
-  taglineLead: 'Reliable Solar Power.',
-  taglineAccent: 'Professionally Installed.',
+  name: 'ELVOLTE',
+  shortName: 'ELVOLTE',
+  legalName: 'ELVOLTE',
+  pillars: ['Power', 'Security', 'Tech', 'Possibility'],
+  brandMessage: 'Powering Possibilities. Securing the Future. Driven by Technology.',
+  tagline: 'Powering Possibilities. Securing the Future.',
+  taglineLead: 'Powering Possibilities.',
+  taglineAccent: 'Securing the Future.',
+  taglineTail: 'Driven by Technology.',
   secondaryMessage:
-    'Solar installation, inverter systems, batteries, maintenance and renewable energy solutions designed around your power needs.',
+    'Solar installation, inverters, batteries, CCTV cameras, electric fencing and barbed wire, smart security systems, access control and electrical solutions.',
+  divisions: {
+    solar: {
+      name: 'Solar & Power',
+      summary:
+        'Solar installation, inverters, lithium batteries, panels, protective devices and electrical solutions.',
+    },
+    security: {
+      name: 'CCTV & Security',
+      summary:
+        'CCTV cameras, electric fencing and barbed wire, smart security systems and access control.',
+    },
+  },
   foundedYear: 2018,
   rcNumber: 'RC — add your CAC number',
 
   leadEngineer: {
     name: 'Engr. Sam Adeyinka',
-    title: 'Lead Solar & Renewable Energy Engineer',
+    title: 'Lead Engineer — Solar, Power & Security Systems',
     experienceYears: 8,
     completedProjects: 120,
     shortBio:
-      'I design and install solar systems that are sized from measured load data — not guesswork — so they still perform in year five.',
-    bio: "I'm a professional solar installation engineer focused on delivering reliable, efficient and cost-effective energy solutions for homes, businesses and institutions. Every system I install starts with a load audit and ends with a commissioning test you can read for yourself.",
+      'Power and security are designed together here: the cameras stay on because the inverter behind them was sized for it.',
+    bio: "I'm a professional engineer focused on reliable power and dependable security for homes, businesses and institutions — solar and inverter systems, CCTV surveillance, electric fencing and access control. Every job starts with a site survey and ends with a test you can see for yourself.",
     credentials: [
       'Certified Solar PV Installation Engineer',
       'Hybrid & Off-Grid Inverter System Design',
-      'Lithium Energy Storage and BMS Integration',
-      'Electrical Safety, Earthing & Surge Protection',
+      'CCTV, IP Surveillance & Remote Viewing Setup',
+      'Electric Fencing, Access Control & Electrical Safety',
     ],
     image: '/images/about/engineer-portrait.jpg',
   },
@@ -84,7 +109,8 @@ export const companyConfig: CompanyConfig = {
   phoneDisplay: '+234 813 537 4919',
   whatsapp: '2348135374919',
   whatsappDisplay: '+234 813 537 4919',
-  email: 'hello@solarproengineering.com',
+  // PLACEHOLDER — replace with the real ELVOLTE email before going live.
+  email: 'info@elvolte.com',
 
   address: 'Plot 14, Commercial Avenue, Victoria Island',
   city: 'Lagos',

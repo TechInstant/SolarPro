@@ -9,7 +9,7 @@ import { useSeo } from '../hooks/useSeo';
 
 export const ContactPage: React.FC = () => {
   useSeo({
-    title: 'Contact SolarPro Engineering',
+    title: `Contact ${companyConfig.name}`,
     description: `Speak to a solar engineer in ${companyConfig.city}. Call ${companyConfig.phoneDisplay}, message on WhatsApp, or send an enquiry about installation, maintenance or equipment.`,
   });
 

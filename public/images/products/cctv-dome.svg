@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a ceiling mounted dome CCTV camera">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- ceiling line -->
+  <path d="M120 150h560" stroke="#0B1F2A" stroke-width="5"/>
+  <g stroke="#C9C2B2" stroke-width="2"><path d="M140 150l-20-24M200 150l-20-24M260 150l-20-24M320 150l-20-24M380 150l-20-24M440 150l-20-24M500 150l-20-24M560 150l-20-24M620 150l-20-24M680 150l-20-24"/></g>
+
+  <!-- base ring -->
+  <rect x="250" y="150" width="300" height="44" rx="6" fill="#FBFAF7" stroke="#0B1F2A" stroke-width="5"/>
+  <!-- dome -->
+  <path d="M270 194h260a130 130 0 0 1 -260 0z" fill="#132B39" stroke="#0B1F2A" stroke-width="5"/>
+  <path d="M300 214a100 100 0 0 0 80 92" fill="none" stroke="#7FA3B4" stroke-width="4" opacity=".6"/>
+  <!-- lens module -->
+  <circle cx="400" cy="262" r="42" fill="#0B1F2A" stroke="#2C566B" stroke-width="4"/>
+  <circle cx="400" cy="262" r="22" fill="#0E2430"/>
+  <circle cx="392" cy="254" r="6" fill="#7FA3B4"/>
+  <g fill="#A87545"><circle cx="352" cy="262" r="4"/><circle cx="448" cy="262" r="4"/></g>
+
+  <!-- dimension -->
+  <g stroke="#4A5B64" stroke-width="1.5"><path d="M250 400h300M250 390v20M550 390v20"/></g>
+  <text x="400" y="432" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">Ø 110 mm</text>
+
+  <!-- callouts -->
+  <g stroke="#A87545" stroke-width="2" fill="none"><path d="M530 250h110"/></g>
+  <text x="648" y="244" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545">VANDAL</text>
+  <text x="648" y="264" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545">RESISTANT</text>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">DOME CAMERA</text>
+  <text x="760" y="566" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">4MP · IK10</text>
+</svg>

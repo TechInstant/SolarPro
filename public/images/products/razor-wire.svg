@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a concertina razor wire coil on a wall">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+    <pattern id="barb" width="46" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 10h46" stroke="#4A5B64" stroke-width="3"/>
+      <path d="M18 10l-8-8M18 10l-8 8M28 10l8-8M28 10l8 8" stroke="#0B1F2A" stroke-width="3" stroke-linecap="round"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- wall -->
+  <rect x="80" y="330" width="640" height="150" fill="#D8D1C1" stroke="#0B1F2A" stroke-width="5"/>
+  <g stroke="#C9C2B2" stroke-width="2">
+    <path d="M80 380h640M80 430h640M200 330v50M360 330v50M520 330v50M680 330v50M120 380v50M280 380v50M440 380v50M600 380v50M200 430v50M360 430v50M520 430v50M680 430v50"/>
+  </g>
+
+  <!-- concertina loops -->
+  <g fill="none" stroke="#8A929B" stroke-width="4">
+    <ellipse cx="160" cy="250" rx="70" ry="80"/>
+    <ellipse cx="250" cy="250" rx="70" ry="80"/>
+    <ellipse cx="340" cy="250" rx="70" ry="80"/>
+    <ellipse cx="430" cy="250" rx="70" ry="80"/>
+    <ellipse cx="520" cy="250" rx="70" ry="80"/>
+    <ellipse cx="610" cy="250" rx="70" ry="80"/>
+  </g>
+  <g fill="#0B1F2A">
+    <circle cx="160" cy="170" r="5"/><circle cx="250" cy="170" r="5"/><circle cx="340" cy="170" r="5"/><circle cx="430" cy="170" r="5"/><circle cx="520" cy="170" r="5"/><circle cx="610" cy="170" r="5"/>
+    <circle cx="95" cy="230" r="5"/><circle cx="185" cy="230" r="5"/><circle cx="275" cy="230" r="5"/><circle cx="365" cy="230" r="5"/><circle cx="455" cy="230" r="5"/><circle cx="545" cy="230" r="5"/><circle cx="675" cy="230" r="5"/>
+  </g>
+  <!-- brackets -->
+  <g stroke="#0B1F2A" stroke-width="8" stroke-linecap="square"><path d="M120 330v-40M400 330v-40M680 330v-40"/></g>
+
+  <!-- barbed strand detail -->
+  <rect x="80" y="94" width="300" height="20" fill="url(#barb)"/>
+  <g stroke="#A87545" stroke-width="2" fill="none"><path d="M390 104h40"/></g>
+  <text x="438" y="110" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#A87545">BTO-22 RAZOR BLADE</text>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">RAZOR &amp; BARBED WIRE</text>
+  <text x="760" y="566" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">Ø 450 mm COIL</text>
+</svg>

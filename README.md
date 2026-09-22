@@ -1,7 +1,23 @@
-# SolarPro Engineering
+# ELVOLTE
 
-Website for a solar installation engineering business: services, project case
-studies, an equipment catalogue, and WhatsApp-first enquiry handling.
+**Power · Security · Tech · Possibility**
+*Powering Possibilities. Securing the Future. Driven by Technology.*
+
+Website for ELVOLTE: solar installation, inverters, batteries, CCTV cameras,
+electric fencing and barbed wire, smart security systems, access control and
+electrical solutions — plus supply of solar products and CCTV installation
+materials.
+
+The site is organised in two sections that run through every page:
+
+| Section | Covers |
+| --- | --- |
+| **Solar & Power** | Solar installation, inverters, lithium batteries, panels, protective devices, electrical solutions |
+| **CCTV & Security** | CCTV cameras, electric fencing / barbed wire, smart security, access control |
+
+Every service, project, product and video carries a `division` (`'solar'` or
+`'security'`), which is what drives the split on the home page, the services
+page, the product tabs and the video filter.
 
 React 19 · Vite · TypeScript · Tailwind CSS · React Router. No backend — every
 form hands off to WhatsApp or email, so the site can be deployed as static files
@@ -120,6 +136,20 @@ anything quoted on request. The card and detail page handle either case.
 `src/components/cards/ServiceCard.tsx` — icons are mapped explicitly there
 because importing the whole icon library adds roughly a megabyte to the bundle.
 
+### A video
+
+Open `src/data/videos.ts`, upload your video to YouTube, copy the link from the
+Share button and paste it into `youtube`. Any YouTube link format works
+(`youtube.com/watch?v=…`, `youtu.be/…`, `/shorts/…`). While `youtube` is empty
+the card shows its poster with a "Coming soon" label.
+
+The first video in the list is the large one on the home page. The player loads
+YouTube only when someone presses play, so videos cost nothing on page load.
+All videos are also listed at `/videos`.
+
+> The first entry currently holds a **test link** (Blender's open-licence short
+> film) so the player can be seen working. Replace it with your own upload.
+
 ### Testimonials
 
 `src/data/testimonials.ts` ships with placeholder entries and the section that
@@ -149,7 +179,10 @@ src/
 ## Routes
 
 `/` · `/services` · `/services/:slug` · `/projects` · `/projects/:slug` ·
-`/products` · `/products/:slug` · `/about` · `/contact` · `/quote` · 404
+`/products` · `/products/:slug` · `/about` · `/contact` · `/quote` · `/videos` · 404
+
+`/services#solar` and `/services#security` jump to each section;
+`/products?division=security` opens the catalogue on the CCTV & Security tab.
 
 ## How enquiries work
 
@@ -167,6 +200,10 @@ later, those handlers are the only place that needs to change.
 
 ## Notes
 
+- **The email `info@elvolte.com` is a placeholder** — set the real address in
+  `src/config/company.ts` before going live.
 - Set the `RC` number in `src/config/company.ts` before going live, or remove it.
+- Social links (Facebook, Instagram, LinkedIn, YouTube) still point at the
+  platform home pages — set your real profile URLs in the same file.
 - The contact page map follows `mapQuery` in the same config file.
 - Animation respects `prefers-reduced-motion`.

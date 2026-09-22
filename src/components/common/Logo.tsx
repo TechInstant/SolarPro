@@ -47,20 +47,20 @@ export const Logo: React.FC<LogoProps> = ({ tone = 'dark', asLink = true, classN
       <span className="flex flex-col leading-none">
         <span
           className={cn(
-            'font-display text-[17px] font-semibold tracking-[-0.02em] sm:text-[19px]',
+            'font-display text-[18px] font-bold tracking-[0.04em] sm:text-[20px]',
             dark ? 'text-cream' : 'text-navy'
           )}
         >
           {companyConfig.shortName}
-          <span className="text-moss-bright">.</span>
         </span>
+        {/* Pillars sit under the wordmark from tablet up; phones keep the header uncluttered. */}
         <span
           className={cn(
-            'mt-1 font-mono text-[9px] uppercase tracking-[0.22em] sm:text-[10px]',
-            dark ? 'text-cream-300/60' : 'text-ink-muted'
+            'mt-1 hidden font-mono text-[9px] uppercase tracking-[0.16em] sm:block',
+            dark ? 'text-moss-bright/80' : 'text-moss-dark'
           )}
         >
-          Engineering
+          {companyConfig.pillars.slice(0, 3).join(' · ')}
         </span>
       </span>
     </span>

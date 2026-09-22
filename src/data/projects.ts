@@ -21,6 +21,7 @@ export const projectsData: Project[] = [
   {
     id: 'p-5kva-hybrid-lekki',
     slug: '5kva-hybrid-solar-system',
+    division: 'solar',
     title: '5kVA Hybrid Solar System',
     category: 'Residential',
     tags: ['Installation'],
@@ -130,6 +131,7 @@ export const projectsData: Project[] = [
   {
     id: 'p-20kva-commercial-abuja',
     slug: '20kva-commercial-installation',
+    division: 'solar',
     title: '20kVA Commercial Installation',
     category: 'Commercial',
     tags: ['Installation'],
@@ -239,6 +241,7 @@ export const projectsData: Project[] = [
   {
     id: 'p-10kva-residential-ph',
     slug: '10kva-residential-system',
+    division: 'solar',
     title: '10kVA Residential System',
     category: 'Residential',
     tags: ['Installation'],
@@ -348,6 +351,7 @@ export const projectsData: Project[] = [
   {
     id: 'p-30kva-church-enugu',
     slug: '30kva-solar-mini-grid',
+    division: 'solar',
     title: '30kVA Solar Mini-Grid',
     category: 'Church',
     tags: ['Installation'],
@@ -457,6 +461,7 @@ export const projectsData: Project[] = [
   {
     id: 'p-15kva-clinic-ibadan',
     slug: '15kva-medical-clinic-system',
+    division: 'solar',
     title: '15kVA Medical Clinic System',
     category: 'Commercial',
     tags: ['Installation', 'Healthcare'],
@@ -553,6 +558,7 @@ export const projectsData: Project[] = [
   {
     id: 'p-50kva-maintenance-ikeja',
     slug: '50kva-system-overhaul-maintenance',
+    division: 'solar',
     title: '50kVA System Overhaul',
     category: 'Maintenance',
     tags: ['Maintenance', 'Industrial'],
@@ -651,6 +657,222 @@ export const projectsData: Project[] = [
     ],
     isExample: true,
   },
+
+  // ─── CCTV & SECURITY ────────────────────────────────────────────────
+  {
+    id: 'p-estate-perimeter-security',
+    slug: 'estate-perimeter-security-system',
+    division: 'security',
+    title: 'Estate Perimeter Security System',
+    category: 'Security',
+    tags: ['Installation', 'Residential'],
+    location: 'Ajah, Lagos',
+    capacity: '18 cameras · 640m electric fence',
+    completionDate: 'May 2025',
+    durationOnSite: '8 days',
+    clientType: 'Gated residential estate (22 homes)',
+    summary:
+      'Two break-ins in one quarter, a wall anyone could climb, and a gate log kept in an exercise book.',
+    challenge:
+      'The estate wall had no deterrent on top, the only cameras were two consumer units that stopped recording whenever the power went, and the gatehouse logged visitors by hand. After two break-ins in three months the residents association wanted the whole perimeter dealt with at once.',
+    clientRequirement:
+      'Stop people coming over the wall, see and record every approach to the estate day and night, and know who came through the gate and when — without the system dying during an outage.',
+    solutionProvided:
+      'A 6-strand monitored electric fence along the full 640m perimeter with razor wire at the two lowest sections, 18 IP cameras covering the wall line, gate and internal roads, and a fingerprint-and-card access point at the pedestrian gate. The NVR, energizer and access controller all run from a dedicated inverter and battery so nothing drops when the grid does.',
+    systemDesign: [
+      { label: 'Perimeter', value: '640m, 6-strand wall-top electric fence' },
+      { label: 'Energizer', value: 'Monitored, 2 zones, siren on cut or short' },
+      { label: 'Cameras', value: '18 × 4MP IP, colour night vision' },
+      { label: 'Recording', value: '16TB NVR, 30 days continuous' },
+      { label: 'Backup power', value: '3kVA inverter, 5kWh lithium — 14 hours' },
+    ],
+    equipmentUsed: [
+      'Monitored 2-zone electric fence energizer with siren',
+      '640m high-tensile wire on galvanised wall-top brackets',
+      '18 × 4MP colour night-vision IP cameras',
+      '32-channel NVR with 16TB storage',
+      'Fingerprint and card access terminal with magnetic lock',
+      '3kVA inverter with 5kWh lithium battery for the security loads',
+    ],
+    installationProcess: [
+      {
+        title: 'Perimeter survey',
+        detail:
+          'Walked and measured the full wall line, marked weak points, camera poles and the two low sections that needed razor wire as well as fence.',
+      },
+      {
+        title: 'Electric fence',
+        detail:
+          'Brackets set every 3m, six strands tensioned, gate bypass cables run underground, and earth spikes driven and tested every 30m.',
+      },
+      {
+        title: 'Camera network',
+        detail:
+          'Cat6 runs in conduit to each camera, PoE switches in weatherproof boxes, and overlapping views so no stretch of wall is covered by a single camera.',
+      },
+      {
+        title: 'Gate access control',
+        detail:
+          'Fingerprint and card reader on the pedestrian gate with a magnetic lock, and a visitor log that replaced the exercise book.',
+      },
+      {
+        title: 'Power and handover',
+        detail:
+          'All security loads moved onto a dedicated inverter, then a night test of every camera and a fence voltage check on every strand.',
+      },
+    ],
+    results: [
+      'No perimeter breach since the fence went live',
+      'Every approach recorded in colour, day and night',
+      'Security runs straight through grid outages',
+      'Residents view the gate cameras from their phones',
+    ],
+    metrics: [
+      { value: '640m', label: 'Perimeter protected' },
+      { value: '18', label: 'Cameras recording 24/7' },
+      { value: '14 hrs', label: 'Backup on security loads' },
+    ],
+    coverImage: '/images/projects/estate-perimeter-security/cover.jpg',
+    coverAlt: 'Estate perimeter wall with a gate and multi-strand electric fence along the top',
+    gallery: [
+      {
+        src: '/images/projects/estate-perimeter-security/before.jpg',
+        stage: 'before',
+        caption: 'Before — a plain wall with nothing on top of it',
+        alt: 'Brick perimeter wall and houses before the security installation',
+      },
+      {
+        src: '/images/projects/estate-perimeter-security/installation.jpg',
+        stage: 'installation',
+        caption: 'Dome and bullet cameras mounted with cable in conduit',
+        alt: 'Dome and bullet CCTV cameras mounted on a building ledge',
+      },
+      {
+        src: '/images/projects/estate-perimeter-security/equipment.jpg',
+        stage: 'equipment',
+        caption: 'Razor wire and warning signage on the low sections',
+        alt: 'Danger electric fence sign on razor wire',
+      },
+      {
+        src: '/images/projects/estate-perimeter-security/detail.jpg',
+        stage: 'detail',
+        caption: 'Pedestrian gate keypad and card reader',
+        alt: 'Illuminated access control keypad mounted on a wall',
+      },
+      {
+        src: '/images/projects/estate-perimeter-security/cover.jpg',
+        stage: 'result',
+        caption: 'After — six live strands along the full perimeter',
+        alt: 'Perimeter wall with electric fence strands and warning sign',
+      },
+    ],
+    featured: true,
+    isExample: true,
+  },
+
+  {
+    id: 'p-office-cctv-access-control',
+    slug: 'office-cctv-access-control',
+    division: 'security',
+    title: 'Office CCTV & Access Control',
+    category: 'Security',
+    tags: ['Installation', 'Commercial'],
+    location: 'Wuse II, Abuja',
+    capacity: '24 cameras · 9 controlled doors',
+    completionDate: 'July 2025',
+    durationOnSite: '6 days',
+    clientType: 'Nine-floor office building',
+    summary:
+      'Keys nobody could account for, a server room anyone could walk into, and cameras that recorded over themselves every two days.',
+    challenge:
+      'The building had outgrown its security. Forty-odd keys were in circulation for nine floors, the server room had a standard lock, and the old DVR only held two days of footage — so by the time an incident was reported, the recording was gone.',
+    clientRequirement:
+      'Control who can enter which floor and room, keep at least a month of footage, and give management a way to see the building remotely.',
+    solutionProvided:
+      'Twenty-four IP cameras covering entrances, stairwells, parking and every floor lobby, recording to an NVR sized for 45 days. Nine doors — the main entrance, each floor lobby and the server room — moved to fingerprint-and-card readers with magnetic locks, all logged centrally with attendance reports for HR.',
+    systemDesign: [
+      { label: 'Cameras', value: '24 × 4MP IP, dome indoors, bullet outdoors' },
+      { label: 'Recording', value: '45 days continuous, RAID-protected NVR' },
+      { label: 'Controlled doors', value: '9 — entrance, 7 lobbies, server room' },
+      { label: 'Credentials', value: 'Fingerprint + card, time schedules per role' },
+      { label: 'Remote access', value: 'Management app with live view and playback' },
+    ],
+    equipmentUsed: [
+      '16 × 4MP dome cameras (indoor)',
+      '8 × 4MP bullet cameras with colour night vision (outdoor)',
+      '32-channel 4K NVR with RAID storage',
+      '9 × fingerprint and card access terminals',
+      'Magnetic locks, exit buttons and backup power supplies',
+      'Type 2 surge protection on the security distribution board',
+    ],
+    installationProcess: [
+      {
+        title: 'Floor-by-floor survey',
+        detail:
+          'Mapped every entrance, stairwell and lobby, agreed camera positions with facilities, and identified which doors needed control.',
+      },
+      {
+        title: 'Cabling',
+        detail:
+          'Cat6 through the existing risers and ceiling voids, terminated to a PoE switch on each floor.',
+      },
+      {
+        title: 'Cameras and recorder',
+        detail:
+          'Indoor domes and outdoor bullets mounted and aimed, NVR racked in the server room with RAID storage for 45 days.',
+      },
+      {
+        title: 'Access control',
+        detail:
+          'Readers, magnetic locks and exit buttons on nine doors, each with battery backup so doors fail safe in an outage.',
+      },
+      {
+        title: 'Enrolment and training',
+        detail:
+          'Every staff member enrolled, access schedules set by role, and a session with management on the app and reports.',
+      },
+    ],
+    results: [
+      'Forty loose keys replaced by credentials that can be revoked in seconds',
+      'Server room entry limited to three named people, and logged',
+      '45 days of footage instead of two',
+      'HR attendance reports straight from the door readers',
+    ],
+    metrics: [
+      { value: '24', label: 'Cameras installed' },
+      { value: '45 days', label: 'Footage retained' },
+      { value: '9', label: 'Doors under control' },
+    ],
+    coverImage: '/images/projects/office-cctv-access-control/cover.jpg',
+    coverAlt: 'Pole with several surveillance cameras and a PTZ dome',
+    gallery: [
+      {
+        src: '/images/projects/office-cctv-access-control/before.jpg',
+        stage: 'before',
+        caption: 'Before — nine floors on a 2-day DVR and a drawer of keys',
+        alt: 'Office tower exterior before the security upgrade',
+      },
+      {
+        src: '/images/projects/office-cctv-access-control/installation.jpg',
+        stage: 'installation',
+        caption: 'Bullet camera mounted under the car park soffit',
+        alt: 'Bullet CCTV camera mounted on a ceiling',
+      },
+      {
+        src: '/images/projects/office-cctv-access-control/equipment.jpg',
+        stage: 'equipment',
+        caption: 'Lobby access terminal',
+        alt: 'Stainless steel access control keypad terminal',
+      },
+      {
+        src: '/images/projects/office-cctv-access-control/result.jpg',
+        stage: 'result',
+        caption: 'After — entrances covered from two angles',
+        alt: 'Two CCTV cameras on a pole against a blue sky',
+      },
+    ],
+    isExample: true,
+  },
 ];
 
 /** Filter tabs used on the portfolio page, in display order. */
@@ -660,8 +882,21 @@ export const projectFilters = [
   'Commercial',
   'Church',
   'Industrial',
+  'Security',
   'Maintenance',
 ] as const;
+
+export const solarProjects = projectsData.filter((p) => p.division === 'solar');
+export const securityProjects = projectsData.filter((p) => p.division === 'security');
+
+/**
+ * What the home page shows under "All": the featured solar work plus the
+ * featured security job, so both halves of the business are visible.
+ */
+export const homeProjects = [
+  ...solarProjects.filter((p) => p.featured).slice(0, 3),
+  ...securityProjects.filter((p) => p.featured).slice(0, 1),
+];
 
 export const featuredProjects = projectsData.filter((p) => p.featured);
 

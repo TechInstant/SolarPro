@@ -22,7 +22,7 @@ const whyChooseItems = [
   {
     icon: Cpu,
     title: 'Proper System Design',
-    detail: 'Tailored to your power needs.',
+    detail: 'Tailored to your site and needs.',
   },
   {
     icon: LifeBuoy,
@@ -39,8 +39,8 @@ const whyChooseItems = [
 const howItWorksSteps = [
   {
     step: '01',
-    title: 'Tell Us Your Power Needs',
-    detail: 'Share your requirements and location.',
+    title: 'Tell Us What You Need',
+    detail: 'Power, security, or both — and where.',
   },
   {
     step: '02',
@@ -70,7 +70,7 @@ export const EngineerSection: React.FC = () => {
             <div className="w-full max-w-xs sm:w-48 lg:w-52 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-cream-300 bg-white">
               <img
                 src={siteImages.about.portrait}
-                alt="Lead Solar Engineer"
+                alt={siteImages.about.portraitAlt}
                 className="w-full h-72 sm:h-80 lg:h-84 object-cover object-top transition-transform duration-500 hover:scale-105"
                 loading="lazy"
               />
@@ -85,7 +85,7 @@ export const EngineerSection: React.FC = () => {
                 Experienced. Certified. Trusted.
               </h2>
               <p className="mt-2.5 text-[13px] leading-relaxed text-ink-soft">
-                I'm a professional solar installation engineer with years of hands-on experience in renewable energy solutions. I deliver reliable, efficient and cost-effective solar systems for homes, businesses and institutions.
+                I'm a professional engineer with years of hands-on experience in solar power and security systems. I deliver reliable, efficient and cost-effective solar, CCTV and access control installations for homes, businesses and institutions.
               </p>
 
               {/* 4 Checkmarks */}
@@ -100,7 +100,7 @@ export const EngineerSection: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-moss-dark shrink-0" />
-                  <span>Solar PV & Electrical Expert</span>
+                  <span>CCTV & Security Systems</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-moss-dark shrink-0" />

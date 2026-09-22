@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a boxed Cat6 network cable with RJ45 connector">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- pull box -->
+  <path d="M130 200l150-60 170 60v230l-170 60-150-60z" fill="#E7E2D5" stroke="#0B1F2A" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M280 140v290M130 200l150 60 170-60M280 260v230" fill="none" stroke="#0B1F2A" stroke-width="4" stroke-linejoin="round"/>
+  <rect x="160" y="290" width="92" height="60" fill="#0B1F2A" transform="skewY(22) translate(0 -80)"/>
+  <text x="206" y="300" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="16" fill="#F7F5EF" transform="skewY(22) translate(0 -80)">CAT6</text>
+  <text x="352" y="330" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="18" fill="#0B1F2A" transform="skewY(-19) translate(0 110)">305 m</text>
+  <!-- cable out of box -->
+  <path d="M370 220c80 -40 150 -20 200 40s60 90 80 90" fill="none" stroke="#3F8F5B" stroke-width="14" stroke-linecap="round"/>
+
+  <!-- RJ45 plug -->
+  <g transform="translate(640 330)">
+    <rect x="0" y="-26" width="90" height="52" rx="6" fill="#FBFAF7" stroke="#0B1F2A" stroke-width="4" opacity=".95"/>
+    <g fill="#A87545"><rect x="54" y="-18" width="4" height="36"/><rect x="62" y="-18" width="4" height="36"/><rect x="70" y="-18" width="4" height="36"/><rect x="78" y="-18" width="4" height="36"/></g>
+    <path d="M10 -26l20 -18h30" fill="none" stroke="#0B1F2A" stroke-width="4"/>
+  </g>
+
+  <text x="560" y="450" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#4A5B64">23 AWG PURE COPPER</text>
+  <text x="560" y="474" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#A87545">UP TO 100 m PER RUN</text>
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">NETWORK CABLE</text>
+</svg>

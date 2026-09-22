@@ -9,6 +9,7 @@ import { Button } from '../components/ui/Button';
 import { getProductBySlug, getRelatedProducts, formatPrice } from '../data/products';
 import { getServiceBySlug } from '../data/services';
 import { getWhatsAppUrl, whatsappMessages } from '../utils/whatsapp';
+import { companyConfig } from '../config/company';
 import { useSeo } from '../hooks/useSeo';
 import type { Product } from '../types';
 
@@ -20,7 +21,7 @@ export const ProductDetailPage: React.FC = () => {
   useSeo({
     title: product ? `${product.name} — ${product.brand}` : 'Product',
     description:
-      product?.shortSpec ?? 'Solar equipment supplied and installed by SolarPro Engineering.',
+      product?.shortSpec ?? `Equipment supplied and installed by ${companyConfig.name}.`,
     image: product?.image,
     type: 'article',
   });

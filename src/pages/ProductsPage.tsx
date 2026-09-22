@@ -1,16 +1,42 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, X, MessageCircle } from 'lucide-react';
+import { Search, X, MessageCircle, SunMedium, Cctv, LayoutGrid } from 'lucide-react';
 import { PageHero } from '../components/common/PageHero';
 import { ProductCard } from '../components/cards/ProductCard';
 import { ProductModal } from '../components/common/ProductModal';
 import { FilterTabs } from '../components/ui/FilterTabs';
 import { EmptyState } from '../components/ui/States';
 import { Button } from '../components/ui/Button';
-import { productsData, productCategories } from '../data/products';
+import {
+  productsData,
+  productDivision,
+  categoryDivision,
+  solarProductCategories,
+  securityProductCategories,
+} from '../data/products';
 import { getWhatsAppUrl, whatsappMessages } from '../utils/whatsapp';
 import { useSeo } from '../hooks/useSeo';
-import type { Product } from '../types';
+import { cn } from '../utils/cn';
+import type { Division, Product, ProductCategory } from '../types';
+
+type DivisionFilter = Division | 'all';
+
+const divisionTabs: { value: DivisionFilter; label: string; Icon: typeof SunMedium }[] = [
+  { value: 'all', label: 'All products', Icon: LayoutGrid },
+  { value: 'solar', label: 'Solar & Power', Icon: SunMedium },
+  { value: 'security', label: 'CCTV & Security', Icon: Cctv },
+];
+
+const isDivision = (value: string | null): value is Division =>
+  value === 'solar' || value === 'security';
+
+/** Resolve the starting division from the URL: explicit ?division=, else the category's. */
+function divisionFromParams(params: URLSearchParams): DivisionFilter {
+  const division = params.get('division');
+  if (isDivision(division)) return division;
+  const category = params.get('category') as ProductCategory | null;
+  return category && categoryDivision[category] ? categoryDivision[category] : 'all';
+}
 
 type SortKey = 'featured' | 'price-asc' | 'price-desc' | 'name';
 
@@ -24,45 +50,67 @@ const sortOptions: { value: SortKey; label: string }[] = [
 export const ProductsPage: React.FC = () => {
   const [params, setParams] = useSearchParams();
   const [query, setQuery] = useState('');
+  const [division, setDivision] = useState<DivisionFilter>(() => divisionFromParams(params));
   const [category, setCategory] = useState<string>(params.get('category') ?? 'All');
   const [sort, setSort] = useState<SortKey>('featured');
   const [enquiry, setEnquiry] = useState<Product | null>(null);
 
   useSeo({
-    title: 'Solar Equipment & Installation Tools',
+    title: 'Solar, CCTV & Security Equipment',
     description:
-      'Solar panels, hybrid inverters, lithium and tubular batteries, charge controllers, cables, MC4 connectors and installation tools — with specifications and prices on request.',
+      'Inverters, lithium batteries, solar panels and protective devices, plus CCTV cameras, recorders, installation materials, electric fence energizers and access control — with full specifications.',
   });
 
-  // Keep the category in the URL so links from the home page and footer land correctly.
+  // Links from the home page and footer carry ?division= and ?category= — follow them.
   useEffect(() => {
-    const fromUrl = params.get('category');
-    if (fromUrl && fromUrl !== category) setCategory(fromUrl);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    setDivision(divisionFromParams(params));
+    setCategory(params.get('category') ?? 'All');
   }, [params]);
+
+  const updateParams = (nextDivision: DivisionFilter, nextCategory: string) => {
+    const next = new URLSearchParams();
+    if (nextDivision !== 'all') next.set('division', nextDivision);
+    if (nextCategory !== 'All') next.set('category', nextCategory);
+    setParams(next, { replace: true });
+  };
+
+  const changeDivision = (next: DivisionFilter) => {
+    setDivision(next);
+    setCategory('All');
+    updateParams(next, 'All');
+  };
 
   const changeCategory = (next: string) => {
     setCategory(next);
-    if (next === 'All') {
-      params.delete('category');
-    } else {
-      params.set('category', next);
-    }
-    setParams(params, { replace: true });
+    updateParams(division, next);
   };
 
+  /** Category chips shown for the current division. */
+  const categoryOptions = useMemo<string[]>(() => {
+    if (division === 'solar') return ['All', ...solarProductCategories];
+    if (division === 'security') return ['All', ...securityProductCategories];
+    return ['All', ...solarProductCategories, ...securityProductCategories];
+  }, [division]);
+
+  const inDivision = (product: Product) =>
+    division === 'all' || productDivision(product) === division;
+
   const counts = useMemo(() => {
-    const result: Record<string, number> = { All: productsData.length };
-    productCategories.slice(1).forEach((key) => {
+    const result: Record<string, number> = {
+      All: productsData.filter(inDivision).length,
+    };
+    categoryOptions.slice(1).forEach((key) => {
       result[key] = productsData.filter((product) => product.category === key).length;
     });
     return result;
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categoryOptions, division]);
 
   const visible = useMemo(() => {
     const term = query.trim().toLowerCase();
 
     const filtered = productsData.filter((product) => {
+      const matchesDivision = inDivision(product);
       const matchesCategory = category === 'All' || product.category === category;
       const matchesQuery =
         !term ||
@@ -71,7 +119,7 @@ export const ProductsPage: React.FC = () => {
         product.shortSpec.toLowerCase().includes(term) ||
         product.category.toLowerCase().includes(term) ||
         product.applications.some((a) => a.toLowerCase().includes(term));
-      return matchesCategory && matchesQuery;
+      return matchesDivision && matchesCategory && matchesQuery;
     });
 
     const sorted = [...filtered];
@@ -89,11 +137,12 @@ export const ProductsPage: React.FC = () => {
         sorted.sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
     }
     return sorted;
-  }, [query, category, sort]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [query, category, sort, division]);
 
   const reset = () => {
     setQuery('');
-    changeCategory('All');
+    changeDivision('all');
     setSort('featured');
   };
 
@@ -102,12 +151,38 @@ export const ProductsPage: React.FC = () => {
       <PageHero
         eyebrow="Equipment catalogue"
         title="Quality Equipment. Professional Tools."
-        subtitle="Genuine solar equipment and the tools to install it. Prices shown are current for stock items; anything built to order is quoted per system. There is no checkout here — you get a person, a price and a delivery date on WhatsApp."
+        subtitle="Inverters, lithium batteries, panels and protective devices — plus CCTV cameras and installation materials. Prices shown are current for stock items; anything built to order is quoted per system. There is no checkout: you get a person, a price and a delivery date on WhatsApp."
         breadcrumbItems={[{ label: 'Products' }]}
       />
 
       <section className="bg-cream-50 py-10 sm:py-14 lg:py-16">
         <div className="shell">
+          {/* Division tabs */}
+          <div
+            className="mb-5 grid grid-cols-3 gap-1 rounded-lg border border-cream-300 bg-white p-1 shadow-sm sm:inline-grid"
+            role="tablist"
+            aria-label="Product range"
+          >
+            {divisionTabs.map(({ value, label, Icon }) => {
+              const active = division === value;
+              return (
+                <button
+                  key={value}
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => changeDivision(value)}
+                  className={cn(
+                    'inline-flex min-h-[44px] items-center justify-center gap-2 rounded-md px-2 text-[12.5px] font-semibold transition-colors sm:px-4 sm:text-[13.5px]',
+                    active ? 'bg-navy text-cream shadow-sm' : 'text-ink-soft hover:text-navy'
+                  )}
+                >
+                  <Icon className="hidden h-4 w-4 sm:block" strokeWidth={1.8} aria-hidden />
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+
           {/* Controls */}
           <div className="space-y-5 border-b border-cream-300 pb-6">
             <div className="flex flex-col gap-3 sm:flex-row">
@@ -156,7 +231,7 @@ export const ProductsPage: React.FC = () => {
             </div>
 
             <FilterTabs
-              options={productCategories}
+              options={categoryOptions}
               value={category}
               onChange={changeCategory}
               counts={counts}

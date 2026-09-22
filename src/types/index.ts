@@ -1,6 +1,14 @@
+/**
+ * The two halves of the business. Every service, project, product and
+ * video belongs to one of them, which is what lets each page split into
+ * a Solar section and a CCTV & Security section.
+ */
+export type Division = 'solar' | 'security';
+
 export interface Service {
   id: string;
   slug: string;
+  division: Division;
   title: string;
   shortDescription: string;
   fullDescription: string;
@@ -18,7 +26,8 @@ export type ProjectCategory =
   | 'Commercial'
   | 'Church'
   | 'Industrial'
-  | 'Maintenance';
+  | 'Maintenance'
+  | 'Security';
 
 /** Each stage of the case study carries its own photograph and caption. */
 export type GalleryStage = 'before' | 'installation' | 'equipment' | 'result' | 'detail';
@@ -39,6 +48,7 @@ export interface ProjectMetric {
 export interface Project {
   id: string;
   slug: string;
+  division: Division;
   title: string;
   category: ProjectCategory;
   /** Extra tags used by the portfolio filter, e.g. 'Installation'. */
@@ -75,7 +85,16 @@ export type ProductCategory =
   | 'Solar Cables'
   | 'MC4 Connectors'
   | 'Installation Tools'
-  | 'Accessories';
+  | 'Protective Devices'
+  | 'Accessories'
+  // CCTV & Security
+  | 'CCTV Cameras'
+  | 'NVR & DVR'
+  | 'CCTV Cables & Connectors'
+  | 'PoE & Power Supplies'
+  | 'Electric Fence Energizers'
+  | 'Razor & Barbed Wire'
+  | 'Access Control';
 
 export interface Product {
   id: string;
@@ -99,6 +118,22 @@ export interface Product {
   /** Services that pair with this product, by service slug. */
   relatedServiceSlug?: string;
   featured?: boolean;
+}
+
+export interface Video {
+  id: string;
+  division: Division;
+  title: string;
+  description: string;
+  /**
+   * Paste the YouTube link exactly as you copied it — any of
+   * youtube.com/watch?v=…, youtu.be/…, youtube.com/shorts/… or the bare
+   * 11-character ID. Leave empty until the video is uploaded.
+   */
+  youtube: string;
+  /** Shown before the video plays. Defaults to YouTube's own thumbnail. */
+  poster?: string;
+  duration?: string;
 }
 
 export interface Testimonial {

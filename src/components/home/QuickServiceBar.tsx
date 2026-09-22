@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SunMedium, Settings, Wrench, Users } from 'lucide-react';
+import { SunMedium, Cctv, Settings, Wrench } from 'lucide-react';
 
 const items = [
   {
-    label: 'Installation',
-    to: '/services/solar-panel-installation',
+    label: 'Solar Installation',
+    to: '/services#solar',
     Icon: SunMedium,
   },
   {
-    label: 'Sales',
+    label: 'CCTV & Security',
+    to: '/services#security',
+    Icon: Cctv,
+  },
+  {
+    label: 'Sales & Supply',
     to: '/products',
     Icon: Settings,
   },
@@ -17,11 +22,6 @@ const items = [
     label: 'Maintenance',
     to: '/services/solar-system-maintenance',
     Icon: Wrench,
-  },
-  {
-    label: 'Consultation',
-    to: '/services/solar-system-design',
-    Icon: Users,
   },
 ];
 
@@ -38,7 +38,7 @@ export const QuickServiceBar: React.FC = () => (
             <div className="text-moss-dark transition-transform duration-200 group-hover:scale-110">
               <Icon className="h-5 w-5" strokeWidth={1.8} aria-hidden />
             </div>
-            <span className="text-[15px] font-semibold text-navy transition-colors group-hover:text-moss-dark">
+            <span className="text-[14px] sm:text-[15px] font-semibold text-navy transition-colors group-hover:text-moss-dark">
               {label}
             </span>
           </Link>
@@ -47,4 +47,3 @@ export const QuickServiceBar: React.FC = () => (
     </div>
   </section>
 );
-

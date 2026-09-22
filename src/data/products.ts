@@ -1,4 +1,4 @@
-import { Product, ProductCategory } from '../types';
+import { Division, Product, ProductCategory } from '../types';
 
 /**
  * EQUIPMENT CATALOGUE
@@ -222,7 +222,7 @@ export const productsData: Product[] = [
     slug: 'solar-installation-toolkit',
     name: 'Solar Installation Toolkit — 12 Piece',
     category: 'Installation Tools',
-    brand: 'SolarPro Tools',
+    brand: 'ELVOLTE Tools',
     shortSpec: 'Ratchet crimper · stripper · MC4 spanners · cutter',
     fullDescription:
       'The kit we hand a new technician on day one. A ratchet crimper that will not release until the crimp is complete is the single best guarantee of a joint that lasts.',
@@ -248,8 +248,8 @@ export const productsData: Product[] = [
     id: 'dc-combiner-surge-board',
     slug: 'dc-combiner-surge-protection-board',
     name: 'DC Combiner & Surge Protection Board',
-    category: 'Accessories',
-    brand: 'SolarPro Assembly',
+    category: 'Protective Devices',
+    brand: 'ELVOLTE Assembly',
     shortSpec: '600V rotary isolator · per-string fusing · Type 2 SPD',
     fullDescription:
       'Assembled and labelled in our workshop to match your array layout. It gives you one place to isolate the DC side safely for maintenance, and takes the lightning surge that would otherwise reach your inverter.',
@@ -274,7 +274,7 @@ export const productsData: Product[] = [
     slug: 'aluminium-rail-mounting-kit',
     name: 'Anodised Aluminium Rail Mounting Kit',
     category: 'Accessories',
-    brand: 'SolarPro Supply',
+    brand: 'ELVOLTE Supply',
     shortSpec: '4.2m rails · mid and end clamps · roof hooks',
     fullDescription:
       'Anodised aluminium rail, stainless fixings and the right hook for your roof type. Galvanised steel looks cheaper on the invoice and rusts through in coastal air within a few years.',
@@ -294,11 +294,274 @@ export const productsData: Product[] = [
     warranty: '10-year structural warranty',
     relatedServiceSlug: 'solar-panel-installation',
   },
+  {
+    id: 'ac-surge-protection-kit',
+    slug: 'ac-surge-protection-breaker-kit',
+    name: 'AC Surge Protection & Breaker Kit',
+    category: 'Protective Devices',
+    brand: 'Schneider Electric',
+    shortSpec: 'Type 2 SPD 40kA · MCBs · 30mA RCD',
+    fullDescription:
+      'The protection that sits between your inverter output and the house. A Type 2 surge arrester takes the lightning and grid spikes that kill inverters and CCTV recorders, and the breakers and RCD keep a fault on one circuit from taking down the rest.',
+    priceLabel: 'Quoted per board',
+    availability: 'In Stock',
+    image: '/images/products/ac-spd.svg',
+    gallery: ['/images/products/ac-spd.svg'],
+    highlights: ['Type 2 SPD, 40kA', 'Status window: green OK, red replace', 'DIN rail mounted'],
+    specifications: {
+      'Surge protection': 'Type 2, 4-pole, Imax 40kA',
+      'Nominal voltage': '230 / 400 V AC',
+      Breakers: 'C-curve MCBs, 6–63 A as required',
+      'Residual current': '30 mA RCD for personal protection',
+      Mounting: '35 mm DIN rail',
+    },
+    applications: ['Inverter AC output', 'CCTV and NVR supply', 'Distribution boards'],
+    warranty: 'Manufacturer warranty',
+    relatedServiceSlug: 'electrical-installation',
+  },
+
+  // ─── CCTV & SECURITY ────────────────────────────────────────────────
+  {
+    id: 'hikvision-4mp-colorvu-bullet',
+    slug: 'hikvision-4mp-colorvu-bullet-camera',
+    name: 'Hikvision 4MP ColorVu Bullet Camera',
+    category: 'CCTV Cameras',
+    brand: 'Hikvision',
+    shortSpec: '4MP IP · colour night vision · IP67',
+    fullDescription:
+      'Colour footage at night instead of grey infrared, which is the difference between "someone came in" and a face and a shirt colour you can act on. Weatherproof for outdoor walls, gates and parking.',
+    price: 85000,
+    priceFormatted: '₦85,000',
+    availability: 'In Stock',
+    image: '/images/products/cctv-bullet.svg',
+    gallery: ['/images/products/cctv-bullet.svg'],
+    highlights: ['4MP resolution', 'Colour night vision to 40m', 'PoE — one cable for power and data'],
+    specifications: {
+      Resolution: '4MP (2560 × 1440)',
+      Lens: '2.8 mm or 4 mm fixed',
+      'Night vision': 'Colour, warm-light up to 40 m',
+      Compression: 'H.265+',
+      Power: 'PoE (802.3af) or 12 V DC',
+      'Weather rating': 'IP67',
+    },
+    applications: ['Gates and entrances', 'Perimeter walls', 'Parking areas'],
+    warranty: '2-year manufacturer warranty',
+    relatedServiceSlug: 'cctv-camera-installation',
+    featured: true,
+  },
+  {
+    id: 'dahua-4mp-dome',
+    slug: 'dahua-4mp-wizsense-dome-camera',
+    name: 'Dahua 4MP WizSense Dome Camera',
+    category: 'CCTV Cameras',
+    brand: 'Dahua',
+    shortSpec: '4MP IP dome · human & vehicle detection · IK10',
+    fullDescription:
+      'The indoor workhorse for lobbies, corridors and shop floors. Smart detection filters out moving shadows and leaves, so alerts go off for people and vehicles rather than every time the light changes.',
+    price: 72000,
+    priceFormatted: '₦72,000',
+    availability: 'In Stock',
+    image: '/images/products/cctv-dome.svg',
+    gallery: ['/images/products/cctv-dome.svg'],
+    highlights: ['Human and vehicle detection', 'Vandal-resistant IK10', 'Built-in microphone'],
+    specifications: {
+      Resolution: '4MP (2688 × 1520)',
+      Lens: '2.8 mm fixed, 105° view',
+      'Night vision': 'Infrared up to 30 m',
+      'Smart features': 'Human and vehicle classification',
+      Power: 'PoE or 12 V DC',
+      'Impact rating': 'IK10',
+    },
+    applications: ['Offices', 'Corridors and lobbies', 'Retail floors'],
+    warranty: '2-year manufacturer warranty',
+    relatedServiceSlug: 'cctv-camera-installation',
+    featured: true,
+  },
+  {
+    id: 'hikvision-8ch-poe-nvr',
+    slug: 'hikvision-8-channel-4k-poe-nvr',
+    name: 'Hikvision 8-Channel 4K PoE NVR',
+    category: 'NVR & DVR',
+    brand: 'Hikvision',
+    shortSpec: '8 PoE ports · 4K output · up to 10TB',
+    fullDescription:
+      'Records up to eight IP cameras and powers them over the same cable. Add a surveillance-grade hard drive and you have weeks of footage, viewable live or played back from your phone.',
+    price: 145000,
+    priceFormatted: '₦145,000',
+    availability: 'In Stock',
+    image: '/images/products/nvr.svg',
+    gallery: ['/images/products/nvr.svg'],
+    highlights: ['8 built-in PoE ports', '4K HDMI output', 'Remote viewing app'],
+    specifications: {
+      Channels: '8 IP cameras',
+      'PoE ports': '8 × 802.3af/at',
+      'Max resolution': '8MP recording',
+      Storage: '1 SATA bay, up to 10TB',
+      Output: 'HDMI 4K and VGA',
+      'Remote access': 'Mobile app and web browser',
+    },
+    applications: ['Homes', 'Small offices', 'Shops'],
+    warranty: '2-year manufacturer warranty',
+    relatedServiceSlug: 'cctv-camera-installation',
+    featured: true,
+  },
+  {
+    id: 'cat6-utp-305m',
+    slug: 'cat6-utp-cable-305m',
+    name: 'Cat6 UTP Network Cable — 305m Box',
+    category: 'CCTV Cables & Connectors',
+    brand: 'Commscope',
+    shortSpec: 'Pure copper 23 AWG · PoE rated · 305m',
+    fullDescription:
+      'Pure copper, not copper-clad aluminium. CCA cable is cheaper and drops PoE cameras at long runs because the voltage falls away — this is the cable that keeps a camera 80m from the recorder working.',
+    price: 125000,
+    priceFormatted: '₦125,000',
+    availability: 'In Stock',
+    image: '/images/products/cat6-cable.svg',
+    gallery: ['/images/products/cat6-cable.svg'],
+    highlights: ['Pure copper, not CCA', 'PoE runs up to 100m', 'Pull-box dispensing'],
+    specifications: {
+      Category: 'Cat6 U/UTP',
+      Conductor: '23 AWG solid bare copper',
+      Length: '305 m box',
+      'PoE support': 'IEEE 802.3af/at/bt',
+      Jacket: 'PVC, grey',
+    },
+    applications: ['IP camera runs', 'Access control wiring', 'Office networks'],
+    warranty: 'Manufacturer warranty',
+    relatedServiceSlug: 'cctv-camera-installation',
+  },
+  {
+    id: 'poe-switch-8-port',
+    slug: '8-port-poe-switch',
+    name: '8-Port PoE+ Switch with Gigabit Uplink',
+    category: 'PoE & Power Supplies',
+    brand: 'TP-Link',
+    shortSpec: '8 × PoE+ · 120W budget · 2 × gigabit uplink',
+    fullDescription:
+      'Extends a camera network beyond what the recorder can power on its own — typically one per floor or one per remote cluster of cameras, feeding back to the NVR over a single uplink.',
+    price: 98000,
+    priceFormatted: '₦98,000',
+    availability: 'In Stock',
+    image: '/images/products/poe-switch.svg',
+    gallery: ['/images/products/poe-switch.svg'],
+    highlights: ['120W PoE budget', '30W per port', 'Extend mode to 250m'],
+    specifications: {
+      'PoE ports': '8 × 10/100 PoE+ (802.3at)',
+      Uplinks: '2 × gigabit RJ45',
+      'PoE budget': '120 W',
+      'Extend mode': 'Up to 250 m at 10 Mbps',
+      Mounting: 'Desktop or wall',
+    },
+    applications: ['Multi-floor CCTV', 'Remote camera clusters', 'Access control readers'],
+    warranty: '3-year manufacturer warranty',
+    relatedServiceSlug: 'cctv-camera-installation',
+  },
+  {
+    id: 'electric-fence-energizer',
+    slug: 'electric-fence-energizer-monitored',
+    name: 'Monitored Electric Fence Energizer',
+    category: 'Electric Fence Energizers',
+    brand: 'Nemtek',
+    shortSpec: '2 zones · 9kV · siren and alarm output',
+    fullDescription:
+      'The heart of a wall-top fence. It delivers the pulse, watches every zone for a cut or short, and sounds the siren the moment someone tampers with the wire — so the fence is an alarm as well as a deterrent.',
+    priceLabel: 'Request price',
+    availability: 'In Stock',
+    image: '/images/products/fence-energizer.svg',
+    gallery: ['/images/products/fence-energizer.svg'],
+    highlights: ['Two monitored zones', 'Siren on cut or short', 'Battery backup'],
+    specifications: {
+      'Output voltage': 'Up to 9 kV',
+      Zones: '2, independently monitored',
+      Alarm: 'Siren and relay output',
+      'Backup battery': '12 V 7 Ah',
+      'Fence length': 'Up to 2 km per zone',
+    },
+    applications: ['Homes', 'Estates', 'Warehouses', 'Farms'],
+    warranty: '2-year manufacturer warranty',
+    relatedServiceSlug: 'electric-fencing-barbed-wire',
+    featured: true,
+  },
+  {
+    id: 'razor-wire-concertina',
+    slug: 'razor-wire-concertina-coil',
+    name: 'Concertina Razor Wire Coil',
+    category: 'Razor & Barbed Wire',
+    brand: 'ELVOLTE Supply',
+    shortSpec: 'Ø450mm coil · BTO-22 blade · galvanised',
+    fullDescription:
+      'A physical barrier where a fence alone is not enough — low walls, rear boundaries and rooftops. Galvanised so it holds up in rain and coastal air. Supplied on its own or installed alongside an electric fence.',
+    priceLabel: 'Priced per metre',
+    availability: 'In Stock',
+    image: '/images/products/razor-wire.svg',
+    gallery: ['/images/products/razor-wire.svg'],
+    highlights: ['Galvanised steel', 'Ø450 mm or Ø730 mm coils', 'Barbed wire also available'],
+    specifications: {
+      'Coil diameter': '450 mm (730 mm on order)',
+      'Blade type': 'BTO-22',
+      Material: 'Hot-dip galvanised steel',
+      'Coverage per coil': 'Approx. 6–8 m stretched',
+      Fixing: 'Wall brackets or Y-posts',
+    },
+    applications: ['Wall tops', 'Rear boundaries', 'Industrial perimeters'],
+    warranty: 'Galvanised finish guaranteed',
+    relatedServiceSlug: 'electric-fencing-barbed-wire',
+  },
+  {
+    id: 'biometric-access-terminal',
+    slug: 'biometric-access-control-terminal',
+    name: 'Biometric Access Control Terminal',
+    category: 'Access Control',
+    brand: 'ZKTeco',
+    shortSpec: 'Fingerprint · card · PIN · 3,000 users',
+    fullDescription:
+      'One reader for doors and gates that takes a fingerprint, a card or a PIN, keeps a log of every entry, and doubles as a staff attendance clock. Users are added and removed in seconds, so a lost card is no longer a lock change.',
+    price: 165000,
+    priceFormatted: '₦165,000',
+    availability: 'In Stock',
+    image: '/images/products/access-control.svg',
+    gallery: ['/images/products/access-control.svg'],
+    highlights: ['Fingerprint, card and PIN', 'Attendance reports', 'Works with gates and maglocks'],
+    specifications: {
+      'User capacity': '3,000 fingerprints, 10,000 cards',
+      'Log capacity': '100,000 events',
+      Credentials: 'Fingerprint, EM card, PIN',
+      Communication: 'TCP/IP, USB',
+      Outputs: 'Lock relay, alarm, exit button, door sensor',
+    },
+    applications: ['Office doors', 'Estate gates', 'Server rooms', 'Staff attendance'],
+    warranty: '1-year manufacturer warranty',
+    relatedServiceSlug: 'access-control-systems',
+    featured: true,
+  },
 ];
 
-/** Catalogue filters, in display order. */
-export const productCategories: (ProductCategory | 'All')[] = [
-  'All',
+/** Which half of the business each category belongs to. */
+export const categoryDivision: Record<ProductCategory, Division> = {
+  Panels: 'solar',
+  Inverters: 'solar',
+  'Lithium Batteries': 'solar',
+  'Deep Cycle Batteries': 'solar',
+  'Charge Controllers': 'solar',
+  'Solar Cables': 'solar',
+  'MC4 Connectors': 'solar',
+  'Installation Tools': 'solar',
+  'Protective Devices': 'solar',
+  Accessories: 'solar',
+  'CCTV Cameras': 'security',
+  'NVR & DVR': 'security',
+  'CCTV Cables & Connectors': 'security',
+  'PoE & Power Supplies': 'security',
+  'Electric Fence Energizers': 'security',
+  'Razor & Barbed Wire': 'security',
+  'Access Control': 'security',
+};
+
+export const productDivision = (product: Product): Division => categoryDivision[product.category];
+
+/** Catalogue filters per division, in display order. */
+export const solarProductCategories: ProductCategory[] = [
   'Panels',
   'Inverters',
   'Lithium Batteries',
@@ -306,21 +569,56 @@ export const productCategories: (ProductCategory | 'All')[] = [
   'Charge Controllers',
   'Solar Cables',
   'MC4 Connectors',
+  'Protective Devices',
   'Installation Tools',
   'Accessories',
 ];
 
-/** Short labels for the home page category rail. */
-export const productCategoryRail: { label: string; category: ProductCategory }[] = [
-  { label: 'Solar Panels', category: 'Panels' },
-  { label: 'Inverters', category: 'Inverters' },
-  { label: 'Lithium Batteries', category: 'Lithium Batteries' },
-  { label: 'Deep Cycle Batteries', category: 'Deep Cycle Batteries' },
-  { label: 'Charge Controllers', category: 'Charge Controllers' },
-  { label: 'Solar Cables', category: 'Solar Cables' },
-  { label: 'MC4 Connectors', category: 'MC4 Connectors' },
-  { label: 'Installation Tools', category: 'Installation Tools' },
+export const securityProductCategories: ProductCategory[] = [
+  'CCTV Cameras',
+  'NVR & DVR',
+  'CCTV Cables & Connectors',
+  'PoE & Power Supplies',
+  'Electric Fence Energizers',
+  'Razor & Barbed Wire',
+  'Access Control',
 ];
+
+export const productCategories: (ProductCategory | 'All')[] = [
+  'All',
+  ...solarProductCategories,
+  ...securityProductCategories,
+];
+
+/**
+ * Home page category tiles — eight per division, so the two tabs share
+ * one layout.
+ */
+export const homeCategoryTiles: Record<
+  Division,
+  { name: string; category: ProductCategory; image: string }[]
+> = {
+  solar: [
+    { name: 'Solar Panels', category: 'Panels', image: '/images/products/solar-panel.svg' },
+    { name: 'Inverters', category: 'Inverters', image: '/images/products/hybrid-inverter.svg' },
+    { name: 'Lithium Batteries', category: 'Lithium Batteries', image: '/images/products/lithium-battery.svg' },
+    { name: 'Deep Cycle Batteries', category: 'Deep Cycle Batteries', image: '/images/products/tubular-battery.svg' },
+    { name: 'Charge Controllers', category: 'Charge Controllers', image: '/images/products/mppt-controller.svg' },
+    { name: 'Solar Cables', category: 'Solar Cables', image: '/images/products/solar-cable.svg' },
+    { name: 'Protective Devices', category: 'Protective Devices', image: '/images/products/ac-spd.svg' },
+    { name: 'Installation Tools', category: 'Installation Tools', image: '/images/products/installation-tools.svg' },
+  ],
+  security: [
+    { name: 'Bullet Cameras', category: 'CCTV Cameras', image: '/images/products/cctv-bullet.svg' },
+    { name: 'Dome Cameras', category: 'CCTV Cameras', image: '/images/products/cctv-dome.svg' },
+    { name: 'NVR & DVR', category: 'NVR & DVR', image: '/images/products/nvr.svg' },
+    { name: 'CCTV Cables', category: 'CCTV Cables & Connectors', image: '/images/products/cat6-cable.svg' },
+    { name: 'PoE Switches', category: 'PoE & Power Supplies', image: '/images/products/poe-switch.svg' },
+    { name: 'Electric Fence', category: 'Electric Fence Energizers', image: '/images/products/fence-energizer.svg' },
+    { name: 'Razor & Barbed Wire', category: 'Razor & Barbed Wire', image: '/images/products/razor-wire.svg' },
+    { name: 'Access Control', category: 'Access Control', image: '/images/products/access-control.svg' },
+  ],
+};
 
 export const getProductBySlug = (slug?: string) =>
   productsData.find((product) => product.slug === slug);

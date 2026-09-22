@@ -4,10 +4,14 @@ import {
   ArrowRight,
   BatteryCharging,
   Building2,
+  Cctv,
   Cpu,
   DraftingCompass,
+  Fence,
+  Fingerprint,
   PlugZap,
   ShieldAlert,
+  ShieldCheck,
   SunMedium,
   Wrench,
   type LucideIcon,
@@ -30,6 +34,10 @@ const serviceIcons: Record<string, LucideIcon> = {
   Wrench,
   ShieldAlert,
   Building2,
+  Cctv,
+  Fence,
+  ShieldCheck,
+  Fingerprint,
 };
 
 function ServiceIcon({ name }: { name: string }) {

@@ -19,7 +19,7 @@ interface Result {
   path: string;
 }
 
-const suggestions = ['hybrid inverter', '5kVA', 'lithium battery', 'maintenance', 'MC4'];
+const suggestions = ['hybrid inverter', 'lithium battery', 'CCTV', 'electric fence', 'access control'];
 
 export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const [query, setQuery] = useState('');

@@ -16,7 +16,7 @@ export const ContactCtaSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hello SolarPro Engineering,\n\nName: ${formData.fullName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service || 'General'}\nMessage: ${formData.message}`;
+    const text = `Hello ${companyConfig.name},\n\nName: ${formData.fullName}\nPhone: ${formData.phone}\nEmail: ${formData.email}\nService: ${formData.service || 'General'}\nMessage: ${formData.message}`;
     window.open(getWhatsAppUrl(text), '_blank');
     setSubmitted(true);
   };
@@ -176,10 +176,19 @@ export const ContactCtaSection: React.FC = () => {
                       className="w-full rounded-md border border-navy-line bg-navy-deep px-3 py-2 text-[13px] text-cream focus:border-moss focus:outline-none"
                     >
                       <option value="">Select Service</option>
-                      <option value="Solar Installation">Solar Installation</option>
-                      <option value="Inverter Installation">Inverter Installation</option>
-                      <option value="Battery Storage">Battery Storage</option>
-                      <option value="Maintenance & Repair">Maintenance & Repair</option>
+                      <optgroup label="Solar & Power">
+                        <option value="Solar Installation">Solar Installation</option>
+                        <option value="Inverter Installation">Inverter Installation</option>
+                        <option value="Battery Storage">Battery Storage</option>
+                        <option value="Electrical Solutions">Electrical Solutions</option>
+                        <option value="Maintenance & Repair">Maintenance & Repair</option>
+                      </optgroup>
+                      <optgroup label="CCTV & Security">
+                        <option value="CCTV Cameras">CCTV Cameras</option>
+                        <option value="Electric Fencing / Barbed Wire">Electric Fencing / Barbed Wire</option>
+                        <option value="Smart Security System">Smart Security System</option>
+                        <option value="Access Control">Access Control</option>
+                      </optgroup>
                       <option value="Equipment Purchase">Equipment Purchase</option>
                       <option value="Consultation">Consultation</option>
                     </select>
@@ -221,7 +230,7 @@ export const ContactCtaSection: React.FC = () => {
               <div className="relative z-10">
                 <h4 className="text-[15px] font-bold text-cream">Request a Quote</h4>
                 <p className="mt-1.5 text-[12px] text-cream-300/80 leading-snug">
-                  Get a customized quote for your solar needs.
+                  Get a customized quote for your solar or security needs.
                 </p>
                 <Link
                   to="/quote"

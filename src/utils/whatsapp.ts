@@ -22,9 +22,10 @@ const divider = '—'.repeat(18);
 
 /** Short contextual openers used by buttons around the site. */
 export const whatsappMessages = {
-  general: `Hello ${brand}, I would like to speak to an engineer about a solar system.`,
-  quote: `Hello ${brand}, I would like to request a quote for a solar system.`,
+  general: `Hello ${brand}, I would like to speak to an engineer about solar power or security.`,
+  quote: `Hello ${brand}, I would like to request a quote.`,
   installation: `Hello ${brand}, I need help with a solar installation.`,
+  security: `Hello ${brand}, I would like a quote for CCTV / security installation (cameras, electric fence or access control).`,
   maintenance: `Hello ${brand}, I would like to book a maintenance visit for an existing solar system.`,
   consultation: `Hello ${brand}, I would like to book a consultation about going solar.`,
   service: (title: string) => `Hello ${brand}, I am interested in your ${title} service.`,
@@ -44,9 +45,9 @@ export function getQuoteWhatsAppMessage(data: QuoteFormData): string {
     data.email ? `Email: ${data.email}` : null,
     `Location: ${data.location}`,
     `Property type: ${data.propertyType}`,
-    `Current power source: ${data.currentPowerSource}`,
+    data.currentPowerSource ? `Current power source: ${data.currentPowerSource}` : null,
     `What is needed: ${data.serviceNeeded}`,
-    data.appliances ? `Appliances / load: ${data.appliances}` : null,
+    data.appliances ? `Load / site details: ${data.appliances}` : null,
     data.budgetRange ? `Budget: ${data.budgetRange}` : null,
     data.message ? `Notes: ${data.message}` : null,
     divider,

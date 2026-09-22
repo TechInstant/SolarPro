@@ -1,12 +1,12 @@
 import React from 'react';
-import { ArrowRight, Zap, ShieldCheck, Settings } from 'lucide-react';
+import { ArrowRight, Zap, Cctv, Settings } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { companyConfig } from '../../config/company';
 import { siteImages } from '../../config/images';
 
 const credibility = [
-  { icon: Zap, title: 'Clean Energy', detail: 'A greener tomorrow' },
-  { icon: ShieldCheck, title: 'Reliable Systems', detail: 'Built to last' },
+  { icon: Zap, title: 'Solar & Power', detail: 'Inverters, batteries, panels' },
+  { icon: Cctv, title: 'CCTV & Security', detail: 'Cameras, fencing, access control' },
   { icon: Settings, title: 'Expert Installation', detail: 'By certified engineers' },
 ];
 
@@ -30,13 +30,15 @@ export const HeroSection: React.FC = () => {
           {/* Left Hero Content */}
           <div className="max-w-2xl">
             <p className="font-mono text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.2em] text-moss-bright">
-              Renewable Energy Solutions
+              {companyConfig.pillars.join(' · ')}
             </p>
 
             <h1 className="mt-4 text-3xl font-bold tracking-tight text-cream sm:text-4xl lg:text-5xl lg:leading-[1.15]">
               {companyConfig.taglineLead}
               <br />
               <span className="text-moss-bright">{companyConfig.taglineAccent}</span>
+              <br />
+              <span className="text-cream-200/90">{companyConfig.taglineTail}</span>
             </h1>
 
             <p className="mt-5 max-w-xl text-[15px] sm:text-[16px] leading-relaxed text-cream-200/90">

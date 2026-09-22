@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a biometric access control terminal">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- terminal body -->
+  <rect x="290" y="70" width="220" height="420" rx="18" fill="#0B1F2A" stroke="#07151D" stroke-width="5"/>
+  <!-- screen -->
+  <rect x="312" y="96" width="176" height="120" rx="6" fill="#132B39"/>
+  <text x="400" y="146" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="18" fill="#65BA84">ACCESS</text>
+  <text x="400" y="172" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="18" fill="#65BA84">GRANTED</text>
+  <text x="400" y="200" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="12" fill="#7FA3B4">08:02 · STAFF 014</text>
+  <!-- keypad -->
+  <g fill="#1B3B4C" stroke="#2C566B" stroke-width="2">
+    <rect x="322" y="236" width="44" height="30" rx="4"/><rect x="378" y="236" width="44" height="30" rx="4"/><rect x="434" y="236" width="44" height="30" rx="4"/>
+    <rect x="322" y="274" width="44" height="30" rx="4"/><rect x="378" y="274" width="44" height="30" rx="4"/><rect x="434" y="274" width="44" height="30" rx="4"/>
+    <rect x="322" y="312" width="44" height="30" rx="4"/><rect x="378" y="312" width="44" height="30" rx="4"/><rect x="434" y="312" width="44" height="30" rx="4"/>
+  </g>
+  <!-- fingerprint sensor -->
+  <rect x="352" y="370" width="96" height="96" rx="12" fill="#07151D" stroke="#A87545" stroke-width="3"/>
+  <g fill="none" stroke="#A87545" stroke-width="2.5" stroke-linecap="round">
+    <path d="M376 430a24 24 0 0 1 48 0"/>
+    <path d="M384 440a16 16 0 0 1 32 -4"/>
+    <path d="M392 446a8 8 0 0 1 16 -6"/>
+    <path d="M368 420a32 32 0 0 1 64 4"/>
+  </g>
+
+  <!-- RFID card -->
+  <g transform="rotate(-12 620 300)">
+    <rect x="560" y="250" width="130" height="84" rx="8" fill="#FBFAF7" stroke="#0B1F2A" stroke-width="4"/>
+    <rect x="576" y="268" width="28" height="22" rx="3" fill="#A87545"/>
+    <path d="M576 306h90M576 318h60" stroke="#C9C2B2" stroke-width="4"/>
+  </g>
+  <path d="M540 330c-10 10 -14 22 -12 36M552 318c-18 16 -24 36 -20 58" fill="none" stroke="#3F8F5B" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- callouts -->
+  <g stroke="#A87545" stroke-width="2" fill="none"><path d="M290 418h-80"/></g>
+  <text x="200" y="412" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#A87545">FINGERPRINT</text>
+  <text x="200" y="432" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#A87545">3,000 USERS</text>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">ACCESS CONTROL TERMINAL</text>
+  <text x="760" y="566" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">CARD · PIN · FINGER</text>
+</svg>

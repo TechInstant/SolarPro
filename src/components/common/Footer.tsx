@@ -30,22 +30,27 @@ const YoutubeIcon = () => (
 const quickLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
   { label: 'Projects', to: '/projects' },
+  { label: 'Videos', to: '/videos' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 const serviceLinks = [
-  { label: 'Installation', to: '/services/solar-panel-installation' },
-  { label: 'Maintenance', to: '/services/solar-system-maintenance' },
-  { label: 'Consultation', to: '/services/solar-system-design' },
-  { label: 'Solar Design', to: '/services/solar-system-design' },
+  { label: 'Solar Installation', to: '/services/solar-panel-installation' },
+  { label: 'Inverters & Batteries', to: '/services/inverter-installation' },
+  { label: 'Electrical Solutions', to: '/services/electrical-installation' },
+  { label: 'CCTV Cameras', to: '/services/cctv-camera-installation' },
+  { label: 'Electric Fencing', to: '/services/electric-fencing-barbed-wire' },
+  { label: 'Access Control', to: '/services/access-control-systems' },
 ];
 
 const productLinks = [
   { label: 'Solar Panels', to: '/products?category=Panels' },
   { label: 'Inverters', to: '/products?category=Inverters' },
-  { label: 'Batteries', to: '/products?category=Lithium+Batteries' },
-  { label: 'Tools & Accessories', to: '/products?category=Installation+Tools' },
+  { label: 'Lithium Batteries', to: '/products?category=Lithium+Batteries' },
+  { label: 'Protective Devices', to: '/products?category=Protective+Devices' },
+  { label: 'CCTV Cameras', to: '/products?category=CCTV+Cameras' },
+  { label: 'Installation Materials', to: '/products?category=CCTV+Cables+%26+Connectors' },
 ];
 
 export const Footer: React.FC = () => (
@@ -55,8 +60,11 @@ export const Footer: React.FC = () => (
         {/* Brand Column */}
         <div className="lg:col-span-2">
           <Logo tone="dark" />
-          <p className="mt-4 max-w-sm text-[13px] leading-relaxed text-cream-300/70">
-            Reliable energy solutions, professionally delivered.
+          <p className="mt-4 max-w-sm text-[13.5px] font-semibold leading-relaxed text-cream">
+            {companyConfig.brandMessage}
+          </p>
+          <p className="mt-2 max-w-sm text-[13px] leading-relaxed text-cream-300/70">
+            {companyConfig.secondaryMessage}
           </p>
         </div>
 
@@ -155,7 +163,10 @@ export const Footer: React.FC = () => (
 
       {/* Bottom Copyright */}
       <div className="mt-12 pt-6 border-t border-navy-line/60 flex flex-col sm:flex-row items-center justify-between text-[11px] text-cream-300/50">
-        <p>© {new Date().getFullYear()} SolarPro Engineering. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} {companyConfig.name}. All rights reserved.</p>
+        <p className="mt-2 sm:mt-0 font-mono uppercase tracking-[0.16em]">
+          {companyConfig.pillars.join(' · ')}
+        </p>
       </div>
     </div>
   </footer>

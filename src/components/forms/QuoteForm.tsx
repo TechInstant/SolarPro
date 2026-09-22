@@ -5,17 +5,26 @@ import { companyConfig } from '../../config/company';
 import { getQuoteWhatsAppMessage, getWhatsAppUrl, getMailtoUrl } from '../../utils/whatsapp';
 import type { QuoteFormData } from '../../types';
 
-const propertyTypes = ['Home', 'Office', 'Shop', 'Factory', 'Church', 'School', 'Other'];
+const propertyTypes = ['Home', 'Estate', 'Office', 'Shop', 'Factory', 'Church', 'School', 'Other'];
 const powerSources = ['Public grid', 'Generator', 'Existing solar', 'No supply at all', 'Other'];
-const needs = [
+
+const solarNeeds = [
   'Complete solar system',
   'Solar installation only',
   'Inverter',
   'Battery / storage',
+  'Electrical solutions',
   'Maintenance or repair',
-  'Consultation and design',
-  'Something else',
 ];
+const securityNeeds = [
+  'CCTV cameras',
+  'Electric fencing / barbed wire',
+  'Smart security system',
+  'Access control',
+];
+const otherNeeds = ['Consultation and design', 'Something else'];
+
+const isSecurityNeed = (need: string) => securityNeeds.includes(need);
 const budgets = [
   'Not sure yet',
   'Under ₦1m',
@@ -48,7 +57,9 @@ function validate(data: QuoteFormData): Errors {
     errors.email = 'That email address does not look right.';
   if (!data.location.trim()) errors.location = 'Where is the property?';
   if (!data.propertyType) errors.propertyType = 'Please choose a property type.';
-  if (!data.currentPowerSource) errors.currentPowerSource = 'Please choose your current power source.';
+  // Power source matters for solar sizing; a CCTV-only job can skip it.
+  if (!data.currentPowerSource && !isSecurityNeed(data.serviceNeeded))
+    errors.currentPowerSource = 'Please choose your current power source.';
   if (!data.serviceNeeded) errors.serviceNeeded = 'Please tell us what you need.';
   return errors;
 }
@@ -287,7 +298,12 @@ export const QuoteForm: React.FC = () => {
 
         <div className="mt-6">
           <label htmlFor="quote-currentPowerSource" className="field-label">
-            Current power source <span className="text-bronze">*</span>
+            Current power source{' '}
+            {isSecurityNeed(data.serviceNeeded) ? (
+              <span className="text-ink-muted">(optional)</span>
+            ) : (
+              <span className="text-bronze">*</span>
+            )}
           </label>
           <select
             id="quote-currentPowerSource"
@@ -308,25 +324,38 @@ export const QuoteForm: React.FC = () => {
       </Step>
 
       <Step index={3} title="What do you need?">
-        <div className="grid gap-2 sm:grid-cols-2" role="radiogroup" aria-label="What do you need">
-          {needs.map((need) => (
-            <button
-              key={need}
-              type="button"
-              role="radio"
-              aria-checked={data.serviceNeeded === need}
-              onClick={() => update('serviceNeeded', need)}
-              className={`tap flex items-center justify-between rounded-sm border px-4 text-left text-[14px] transition-colors ${
-                data.serviceNeeded === need
-                  ? 'border-moss bg-moss-pale text-navy'
-                  : 'border-cream-300 bg-white text-ink-soft hover:border-navy'
-              }`}
-            >
-              {need}
-              {data.serviceNeeded === need && (
-                <Check className="h-4 w-4 text-moss-dark" strokeWidth={2} />
-              )}
-            </button>
+        <div role="radiogroup" aria-label="What do you need" className="space-y-5">
+          {[
+            { heading: 'Solar & Power', options: solarNeeds },
+            { heading: 'CCTV & Security', options: securityNeeds },
+            { heading: 'Other', options: otherNeeds },
+          ].map((group) => (
+            <div key={group.heading}>
+              <p className="mb-2 font-mono text-[10.5px] uppercase tracking-[0.14em] text-ink-muted">
+                {group.heading}
+              </p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {group.options.map((need) => (
+                  <button
+                    key={need}
+                    type="button"
+                    role="radio"
+                    aria-checked={data.serviceNeeded === need}
+                    onClick={() => update('serviceNeeded', need)}
+                    className={`tap flex items-center justify-between rounded-sm border px-4 text-left text-[14px] transition-colors ${
+                      data.serviceNeeded === need
+                        ? 'border-moss bg-moss-pale text-navy'
+                        : 'border-cream-300 bg-white text-ink-soft hover:border-navy'
+                    }`}
+                  >
+                    {need}
+                    {data.serviceNeeded === need && (
+                      <Check className="h-4 w-4 text-moss-dark" strokeWidth={2} />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
         <span id="quote-serviceNeeded" tabIndex={-1} />
@@ -335,13 +364,19 @@ export const QuoteForm: React.FC = () => {
 
       <Step
         index={4}
-        title="What has to stay on?"
-        hint="Rough is fine. This is what the system gets sized against."
+        title={isSecurityNeed(data.serviceNeeded) ? 'Tell us about the site' : 'What has to stay on?'}
+        hint={
+          isSecurityNeed(data.serviceNeeded)
+            ? 'Rough is fine. This is what the camera plan or fence gets designed around.'
+            : 'Rough is fine. This is what the system gets sized against.'
+        }
       >
         <div className="space-y-4">
           <div>
             <label htmlFor="quote-appliances" className="field-label">
-              Appliances and estimated load
+              {isSecurityNeed(data.serviceNeeded)
+                ? 'Site details'
+                : 'Appliances and estimated load'}
             </label>
             <textarea
               id="quote-appliances"
@@ -349,7 +384,11 @@ export const QuoteForm: React.FC = () => {
               className="field resize-none"
               value={data.appliances}
               onChange={(event) => update('appliances', event.target.value)}
-              placeholder="e.g. 12 lights, 1 fridge, 1 freezer, 2 TVs, Wi-Fi, 1 air conditioner from 8pm"
+              placeholder={
+                isSecurityNeed(data.serviceNeeded)
+                  ? 'e.g. 2 gates, 4 outside corners, parking for 6 cars, wall about 120m, want to watch on my phone'
+                  : 'e.g. 12 lights, 1 fridge, 1 freezer, 2 TVs, Wi-Fi, 1 air conditioner from 8pm'
+              }
             />
           </div>
 

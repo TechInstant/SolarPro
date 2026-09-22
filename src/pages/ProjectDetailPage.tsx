@@ -8,6 +8,7 @@ import { Button } from '../components/ui/Button';
 import { Stats } from '../components/ui/Stats';
 import { getProjectBySlug, getRelatedProjects } from '../data/projects';
 import { getWhatsAppUrl, whatsappMessages } from '../utils/whatsapp';
+import { companyConfig } from '../config/company';
 import { useSeo } from '../hooks/useSeo';
 
 /** Case-study section wrapper: numbered, ruled, consistent rhythm. */
@@ -36,7 +37,7 @@ export const ProjectDetailPage: React.FC = () => {
     title: project ? `${project.title} — ${project.location}` : 'Project',
     description:
       project?.summary ??
-      'A documented solar installation case study by SolarPro Engineering.',
+      `A documented installation case study by ${companyConfig.name}.`,
     image: project?.coverImage,
     type: 'article',
   });

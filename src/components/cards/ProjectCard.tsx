@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Home, Building2, Church, Zap } from 'lucide-react';
+import { ArrowRight, MapPin, Home, Building2, Church, Zap, Cctv, ShieldCheck } from 'lucide-react';
 import type { Project } from '../../types';
 import { cn } from '../../utils/cn';
 
@@ -19,7 +19,15 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
       ? Building2
       : project.category === 'Church'
       ? Church
+      : project.category === 'Security'
+      ? ShieldCheck
       : Zap;
+
+  const isSecurity = project.division === 'security';
+  const SystemIcon = isSecurity ? Cctv : Zap;
+  const systemLabel = isSecurity
+    ? project.capacity
+    : `${project.capacity.split('·')[0].trim()} Solar System`;
 
   return (
     <article
@@ -53,8 +61,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, className }) 
               <span className="truncate">{project.location}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Zap className="h-3.5 w-3.5 text-moss-dark shrink-0" strokeWidth={1.75} />
-              <span className="truncate">{project.capacity.split('·')[0].trim()} Solar System</span>
+              <SystemIcon className="h-3.5 w-3.5 text-moss-dark shrink-0" strokeWidth={1.75} />
+              <span className="truncate">{systemLabel}</span>
             </div>
           </div>
 

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of a network video recorder with a camera monitor">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <!-- monitor with 4-way split -->
+  <rect x="220" y="70" width="360" height="220" rx="8" fill="#0B1F2A"/>
+  <rect x="234" y="84" width="332" height="192" fill="#132B39"/>
+  <g stroke="#0B1F2A" stroke-width="4"><path d="M400 84v192M234 180h332"/></g>
+  <g fill="#1B3B4C">
+    <rect x="252" y="100" width="130" height="64" rx="2"/><rect x="418" y="100" width="130" height="64" rx="2"/>
+    <rect x="252" y="196" width="130" height="64" rx="2"/><rect x="418" y="196" width="130" height="64" rx="2"/>
+  </g>
+  <g fill="#3F8F5B"><circle cx="262" cy="110" r="4"/><circle cx="428" cy="110" r="4"/><circle cx="262" cy="206" r="4"/><circle cx="428" cy="206" r="4"/></g>
+  <path d="M380 290h40l14 26h-68z" fill="#0B1F2A"/>
+
+  <!-- recorder -->
+  <rect x="150" y="360" width="500" height="92" rx="8" fill="#FBFAF7" stroke="#0B1F2A" stroke-width="5"/>
+  <rect x="150" y="360" width="500" height="22" rx="8" fill="#0B1F2A"/>
+  <rect x="150" y="374" width="500" height="8" fill="#0B1F2A"/>
+  <text x="176" y="424" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="18" fill="#0B1F2A" letter-spacing="2">NVR · 8CH · 4K</text>
+  <g fill="#3F8F5B"><circle cx="520" cy="418" r="6"/><circle cx="544" cy="418" r="6"/></g>
+  <circle cx="568" cy="418" r="6" fill="#A87545"/>
+  <rect x="592" y="406" width="34" height="24" rx="3" fill="#E1DACA" stroke="#0B1F2A" stroke-width="2"/>
+
+  <!-- PoE ports label -->
+  <g stroke="#A87545" stroke-width="2" fill="none"><path d="M650 406h60"/></g>
+  <text x="716" y="400" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#A87545">8 × PoE</text>
+  <text x="716" y="420" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="14" fill="#A87545">PORTS</text>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">NETWORK VIDEO RECORDER</text>
+  <text x="760" y="566" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">UP TO 10TB HDD</text>
+</svg>

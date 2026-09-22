@@ -8,6 +8,9 @@ import type { ContactFormData } from '../../types';
 const subjects = [
   'A new solar installation',
   'Inverter or battery upgrade',
+  'CCTV cameras',
+  'Electric fencing / barbed wire',
+  'Smart security or access control',
   'Maintenance or a fault',
   'Equipment purchase',
   'Consultation and system design',

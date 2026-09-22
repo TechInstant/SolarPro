@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="Technical drawing of an 8-port PoE network switch">
+  <defs>
+    <pattern id="grid" width="25" height="25" patternUnits="userSpaceOnUse">
+      <path d="M25 0H0v25" fill="none" stroke="#E1DACA" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="#F2EFE6"/>
+  <rect width="800" height="600" fill="url(#grid)"/>
+
+  <rect x="110" y="220" width="580" height="140" rx="10" fill="#0B1F2A" stroke="#07151D" stroke-width="5"/>
+  <rect x="126" y="236" width="548" height="108" rx="4" fill="#132B39"/>
+  <text x="146" y="270" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#7FA3B4" letter-spacing="3">PoE SWITCH · 8+2</text>
+
+  <!-- 8 PoE ports -->
+  <g>
+    <rect x="146" y="286" width="44" height="36" rx="3" fill="#07151D"/><rect x="198" y="286" width="44" height="36" rx="3" fill="#07151D"/>
+    <rect x="250" y="286" width="44" height="36" rx="3" fill="#07151D"/><rect x="302" y="286" width="44" height="36" rx="3" fill="#07151D"/>
+    <rect x="354" y="286" width="44" height="36" rx="3" fill="#07151D"/><rect x="406" y="286" width="44" height="36" rx="3" fill="#07151D"/>
+    <rect x="458" y="286" width="44" height="36" rx="3" fill="#07151D"/><rect x="510" y="286" width="44" height="36" rx="3" fill="#07151D"/>
+  </g>
+  <g fill="#3F8F5B">
+    <rect x="160" y="278" width="16" height="4"/><rect x="212" y="278" width="16" height="4"/><rect x="264" y="278" width="16" height="4"/>
+    <rect x="316" y="278" width="16" height="4"/><rect x="368" y="278" width="16" height="4"/>
+  </g>
+  <g fill="#A87545"><rect x="420" y="278" width="16" height="4"/></g>
+  <!-- uplinks -->
+  <rect x="582" y="286" width="36" height="36" rx="3" fill="#E1DACA"/><rect x="624" y="286" width="36" height="36" rx="3" fill="#E1DACA"/>
+
+  <!-- callouts -->
+  <g stroke="#A87545" stroke-width="2" fill="none"><path d="M350 360v60M620 360v60"/></g>
+  <text x="350" y="444" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545">PoE+ 30W PER PORT</text>
+  <text x="620" y="444" text-anchor="middle" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545">GIGABIT UPLINK</text>
+
+  <text x="40" y="566" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#A87545" letter-spacing="1">PoE SWITCH</text>
+  <text x="760" y="566" text-anchor="end" font-family="ui-monospace,Menlo,Consolas,monospace" font-size="15" fill="#4A5B64">120W BUDGET</text>
+</svg>

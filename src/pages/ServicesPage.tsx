@@ -4,40 +4,101 @@ import { PageHero } from '../components/common/PageHero';
 import { ServiceCard } from '../components/cards/ServiceCard';
 import { ProcessTimeline } from '../components/ui/ProcessTimeline';
 import { Button } from '../components/ui/Button';
-import { servicesData } from '../data/services';
+import { solarServices, securityServices } from '../data/services';
+import { companyConfig } from '../config/company';
 import { getWhatsAppUrl, whatsappMessages } from '../utils/whatsapp';
 import { useSeo } from '../hooks/useSeo';
 
 const process = [
-  { title: 'Site visit and load audit', detail: 'We measure what you actually use before quoting anything.' },
-  { title: 'Design and itemised quote', detail: 'Array, inverter, storage and protection, priced line by line.' },
+  { title: 'Site visit and survey', detail: 'We measure your load and walk your perimeter before quoting anything.' },
+  { title: 'Design and itemised quote', detail: 'Equipment, cabling, protection and labour, priced line by line.' },
   { title: 'Installation', detail: 'Mounting, wiring, earthing and protection to specification.' },
-  { title: 'Commissioning and handover', detail: 'Tested under load, documented, and explained to you.' },
+  { title: 'Commissioning and handover', detail: 'Tested, documented, and explained to you.' },
+];
+
+const divisions = [
+  {
+    id: 'solar',
+    eyebrow: companyConfig.divisions.solar.name,
+    title: 'Complete Solar Solutions',
+    summary: companyConfig.divisions.solar.summary,
+    services: solarServices,
+    cta: whatsappMessages.installation,
+  },
+  {
+    id: 'security',
+    eyebrow: companyConfig.divisions.security.name,
+    title: 'CCTV Surveillance & Security',
+    summary: companyConfig.divisions.security.summary,
+    services: securityServices,
+    cta: whatsappMessages.security,
+  },
 ];
 
 export const ServicesPage: React.FC = () => {
   useSeo({
-    title: 'Solar Installation & Maintenance Services',
-    description:
-      'Solar panel installation, inverter systems, battery storage, system design, electrical works, maintenance, fault diagnosis and commercial solar solutions.',
+    title: 'Solar, CCTV & Security Services',
+    description: companyConfig.secondaryMessage,
   });
 
   return (
     <>
       <PageHero
         eyebrow="Services"
-        title="Complete Solar Solutions"
-        subtitle="From consultation to installation and ongoing support, we provide end-to-end solar solutions for homes, businesses and institutions."
+        title="Power and Security, Professionally Installed"
+        subtitle={companyConfig.secondaryMessage}
         breadcrumbItems={[{ label: 'Services' }]}
-      />
+      >
+        <div className="flex flex-wrap gap-2.5">
+          {divisions.map((division) => (
+            <a
+              key={division.id}
+              href={`#${division.id}`}
+              className="inline-flex items-center gap-2 rounded-md border border-navy-line bg-navy-deep/60 px-4 py-2.5 text-[13.5px] font-semibold text-cream transition-colors hover:border-moss"
+            >
+              {division.eyebrow}
+              <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
+            </a>
+          ))}
+        </div>
+      </PageHero>
 
       <section className="bg-cream-50 py-12 sm:py-16 lg:py-20">
         <div className="shell">
-          <div className="grid gap-px bg-cream-300 sm:grid-cols-2 lg:grid-cols-4">
-            {servicesData.map((service, index) => (
-              <ServiceCard key={service.id} service={service} index={index} className="border-0" />
-            ))}
-          </div>
+          {divisions.map((division, index) => (
+            <div
+              key={division.id}
+              id={division.id}
+              className={index > 0 ? 'mt-16 scroll-mt-28 border-t border-cream-300 pt-12' : 'scroll-mt-28'}
+            >
+              <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-2xl">
+                  <p className="font-mono text-[11px] sm:text-[12px] font-semibold uppercase tracking-[0.2em] text-moss-dark">
+                    {division.eyebrow}
+                  </p>
+                  <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-navy">
+                    {division.title}
+                  </h2>
+                  <p className="mt-2 text-[14.5px] leading-relaxed text-ink-soft">{division.summary}</p>
+                </div>
+                <Button
+                  href={getWhatsAppUrl(division.cta)}
+                  variant="whatsapp"
+                  size="sm"
+                  leadingIcon={<MessageCircle className="h-4 w-4" strokeWidth={1.75} />}
+                  className="shrink-0 rounded-md"
+                >
+                  Ask about {division.eyebrow}
+                </Button>
+              </div>
+
+              <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                {division.services.map((service, i) => (
+                  <ServiceCard key={service.id} service={service} index={i} />
+                ))}
+              </div>
+            </div>
+          ))}
 
           <div className="mt-16 border-t border-cream-300 pt-12">
             <p className="eyebrow">How we work</p>

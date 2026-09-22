@@ -2,16 +2,16 @@ import React, { useMemo, useState } from 'react';
 import { ArrowRight, FolderKanban } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ProjectCard } from '../cards/ProjectCard';
-import { projectsData } from '../../data/projects';
+import { projectsData, homeProjects } from '../../data/projects';
 import { cn } from '../../utils/cn';
 
-const filters = ['All', 'Residential', 'Commercial', 'Installation', 'Maintenance'] as const;
+const filters = ['All', 'Residential', 'Commercial', 'Security', 'Maintenance'] as const;
 
 export const ProjectsSection: React.FC = () => {
   const [filter, setFilter] = useState<string>('All');
 
   const visible = useMemo(() => {
-    if (filter === 'All') return projectsData.slice(0, 4);
+    if (filter === 'All') return homeProjects;
     return projectsData
       .filter((project) => project.category === filter || project.tags.includes(filter))
       .slice(0, 4);
@@ -30,7 +30,7 @@ export const ProjectsSection: React.FC = () => {
               Real Projects. Real Impact.
             </h2>
             <p className="mt-2 text-[14.5px] leading-relaxed text-cream-300/80">
-              We've completed a wide range of solar installations for homes, businesses, churches and industries. Here are some of our recent projects.
+              Solar installations and security systems for homes, estates, businesses, churches and industries. Here are some of our recent projects.
             </p>
           </div>
 

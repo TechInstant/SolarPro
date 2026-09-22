@@ -55,7 +55,17 @@ export const siteImages = {
     'solar-system-maintenance': '/images/services/system-maintenance.jpg',
     'fault-diagnosis-repairs': '/images/services/fault-diagnosis.jpg',
     'commercial-solar-solutions': '/images/services/commercial-solar.jpg',
+    'cctv-camera-installation': '/images/services/cctv-installation.jpg',
+    'electric-fencing-barbed-wire': '/images/services/electric-fencing.jpg',
+    'smart-security-systems': '/images/services/smart-security.jpg',
+    'access-control-systems': '/images/services/access-control.jpg',
   } as Record<string, string>,
+
+  /** Home page CCTV & Security section. */
+  security: {
+    image: '/images/security/cctv-section.jpg',
+    alt: 'Two bullet CCTV cameras mounted on a dark ribbed building facade',
+  },
 
   /** Fallback shown if any image fails to load. */
   fallback: '/images/brand/placeholder.svg',
