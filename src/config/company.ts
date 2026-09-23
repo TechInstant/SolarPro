@@ -105,12 +105,12 @@ export const companyConfig: CompanyConfig = {
     image: '/images/about/engineer-portrait.jpg',
   },
 
-  phone: '+2348135374919',
-  phoneDisplay: '+234 813 537 4919',
-  whatsapp: '2348135374919',
-  whatsappDisplay: '+234 813 537 4919',
+  phone: '+2347017656610',
+  phoneDisplay: '+234 701 765 6610',
+  whatsapp: '2347017656610',
+  whatsappDisplay: '+234 701 765 6610',
   // PLACEHOLDER — replace with the real ELVOLTE email before going live.
-  email: 'info@elvolte.com',
+  email: 'info.elvolte@gmail.com',
 
   address: 'OAU Road, Opposite Lagere market',
   city: 'Ile-Ife',
